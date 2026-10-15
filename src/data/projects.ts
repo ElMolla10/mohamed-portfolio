@@ -82,7 +82,7 @@ export const projects: Project[] = [
     number: "02",
     name: "RAGBase",
     category: "RETRIEVAL SYSTEMS",
-    maturity: "Deployment documented · live health unverified",
+    maturity: "Deployed on Railway · earlier AWS implementation",
     headline: "From documents to answers you can trace.",
     problem:
       "Make research papers queryable while preserving source-page citations and visibility into each request.",
@@ -95,7 +95,7 @@ export const projects: Project[] = [
     challenges:
       "Page-preserving chunk boundaries, bounded overlap, and context selection. Top-k cosine retrieval is the default; optional PostgreSQL full-text retrieval uses reciprocal rank fusion rather than mixing score scales.",
     outcomes:
-      "Implemented PDF ingestion, cited answers, document filtering, and PostgreSQL query logs for latency, tokens, and sources. Docker and CI support reproducible deployment.",
+      "Current deployment runs on Railway with FastAPI, PostgreSQL/pgvector, Streamlit, Docker, and GitHub Actions. Implemented PDF ingestion, cited answers, document filtering, and query logs. The earlier AWS implementation used EC2, RDS PostgreSQL 16 / pgvector (IVFFlat), and S3; 4 GB swap and container limits supported a 2 GB RAM EC2 host. Current PDFs are processed in memory; the earlier AWS and current Railway setups are distinct.",
     limitations:
       "Arabic retrieval is limited by the English-oriented embedding model. No reranker or indexed full-text vectors yet. Retrieval-quality and latency benchmarks are not established.",
     stack: [
@@ -106,6 +106,7 @@ export const projects: Project[] = [
       "sentence-transformers",
       "Groq",
       "Docker",
+      "Railway",
     ],
     sources: [
       { label: "Source code", url: "https://github.com/ElMolla10/ragbase" },
@@ -114,8 +115,7 @@ export const projects: Project[] = [
         url: "https://github.com/ElMolla10/ragbase/blob/master/backend/retrieval.py",
       },
     ],
-    verification:
-      "[TODO_VERIFY: current deployment health and retrieval benchmarks]",
+    verification: "[TODO_VERIFY: current retrieval benchmarks]",
   },
   {
     id: "fpl-edge",

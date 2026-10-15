@@ -44,7 +44,14 @@ export function Reveal({
 }
 export function Header() {
   const [open, setOpen] = useState(false);
-  const links = ["Projects", "Architecture", "Experience", "Skills", "Contact"];
+  const links = [
+    "Research",
+    "Projects",
+    "Architecture",
+    "Experience",
+    "Skills",
+    "Contact",
+  ];
   return (
     <header className="header">
       <div className="header-inner">

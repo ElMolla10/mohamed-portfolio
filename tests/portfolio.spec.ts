@@ -134,3 +134,68 @@ test("metadata, generated social image, and reduced motion", async ({
   expect((await request.get("/robots.txt")).status()).toBe(200);
   expect((await request.get("/sitemap.xml")).status()).toBe(200);
 });
+
+test("published research and complete CV sections are discoverable", async ({
+  page,
+}) => {
+  await page.goto("/");
+  await page.getByRole("link", { name: /First-author research/ }).click();
+  await expect(page).toHaveURL(/#research$/);
+  const research = page.locator("#research");
+  await expect(research.getByRole("heading", { level: 3 })).toHaveText(
+    "Automatic Model Selection and Sign-Aware Multiplicative Sentiment Modulation for Algorithmic Trading",
+  );
+  await expect(
+    research.getByRole("link", { name: "Read the published paper" }),
+  ).toHaveAttribute("href", "https://ieeexplore.ieee.org/document/11700381");
+  await expect(research.locator("tbody tr").first()).toContainText("94.2%");
+  await expect(research.locator("tbody tr").first()).toContainText("0.9420");
+  await expect(research.locator("tbody tr").first()).toContainText("0.060");
+  await expect(research.locator("tbody tr").nth(1)).toContainText("89.2%");
+  await expect(research.locator("tbody tr").nth(2)).toContainText("12.5%");
+  await expect(page.locator("#ragbase .supporting")).toContainText(
+    "Deployed on Railway",
+  );
+  const experience = page.locator("#experience");
+  for (const text of [
+    "Prosoft",
+    "Aug 2026 – Present",
+    "BARQ Systems",
+    "Aug 2025",
+    "CLS Learning Solutions",
+    "Apr 2025 – Jul 2025",
+    "HyperCore",
+    "Platform9",
+  ])
+    await expect(experience).toContainText(text);
+  await expect(experience).not.toContainText("TODO_VERIFY");
+  const education = page.locator("#education");
+  for (const text of [
+    "BSc in Artificial Intelligence",
+    "ESLSCA University",
+    "2023 – Jun 2026",
+    "Technical Professional Certification (TPC)",
+    "Infrastructure & Data Center Architecture",
+    "Sales Professional",
+  ])
+    await expect(education).toContainText(text);
+  for (const id of ["trading-engine", "malik", "price-intelligence"]) {
+    const card = page.locator(`#${id}`);
+    await expect(card.getByRole("heading")).toBeVisible();
+    await card.locator("summary").click();
+    await expect(card.locator("details")).toHaveAttribute("open", "");
+  }
+  await expect(page.locator("#trading-engine details")).toContainText(
+    "idempotent",
+  );
+  await expect(page.locator("#malik details")).toContainText("FLEURS");
+  await expect(page.locator("#price-intelligence details")).toContainText(
+    "17-brand",
+  );
+  await expect(page.locator("#price-intelligence details")).toContainText(
+    "11 entries",
+  );
+  await expect(
+    page.getByRole("link", { name: "+20 111 506 6400" }),
+  ).toHaveAttribute("href", "tel:+201115066400");
+});

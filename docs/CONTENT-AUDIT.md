@@ -1,55 +1,48 @@
-# Content evidence and publication checklist
+# CV and source audit — October 15, 2026
 
-Audit performed 2026-10-15 against local source trees in `/Users/mohamedehabelmolla` and the public GAIN and RAGBase repositories. Local working copies may contain changes not yet available on their default remote branches. No project test suite was rerun as part of this portfolio task; test files are evidence of implemented test coverage, not evidence of a fresh passing run.
+## Authoritative CV
 
-Local source revisions: GAIN `d17ecb6`, RAGBase `2f8e695`, FPL Edge `7d6078c`. FPL Edge was inspected on `fix/og-image-url`; GitHub links target the public main branch, so local additions may require merging before visitors can reproduce them.
+The complete one-page `Downloads/Mohamed_ElMolla_AIEngineer_CV.pdf` was extracted with pdftotext and visually reviewed as a rendered page. It is served unchanged as `/Mohamed_ElMolla_AIEngineer_CV.pdf`; SHA-256 `294d62cb3f3e91f489837a359d9c2175b3174519313de40ebae07d65dbd8cbb8`.
 
-## GAIN
+| CV content                                                                         | Website destination                                                                                                                                                                 |
+| ---------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Mohamed Ehab El Molla; ML/MLOps role and AI graduate summary                       | Hero, metadata, about                                                                                                                                                               |
+| Dokki, Cairo; email; telephone; LinkedIn; GitHub                                   | Location, contact and metadata                                                                                                                                                      |
+| Prosoft, Infrastructure Specialist (Cloud & Virtualization), Aug 2026–Present      | Experience timeline; exact scope includes HyperCore, Platform9, VMware migration, HA compute/storage/networking, private-cloud sizing, government/manufacturing/industrial accounts |
+| BARQ Systems DevOps & Infrastructure Engineer internship, Aug 2025                 | Experience timeline; Docker, CI/CD, Linux, networking and monitoring                                                                                                                |
+| CLS Learning Solutions ML Engineer internship, Apr–Jul 2025                        | Experience timeline; classification, predictive pipelines, Optuna, ROC-AUC/macro-F1, tracking                                                                                       |
+| First-author IEEE IMSA 2026 research, Jul 2026                                     | Hero publication link; dedicated research section; exact benchmark table; IEEE and code links                                                                                       |
+| Agentic E-Trading Engine, 2026; team of 5                                          | Additional systems; paper trading, XGBoost/ElasticNet, contextual bandit, seven risk layers, drift/idempotency/recovery                                                             |
+| GAIN, 2026                                                                         | Existing flagship retained, including on-device inference, offline architecture and evaluation                                                                                      |
+| RAGBase, 2026                                                                      | Current Railway case study; earlier AWS work preserved as history, not current hosting                                                                                              |
+| MALIK / long-form Arabic ASR, 2025–2026                                            | Additional systems; Whisper.cpp, overlapping chunks, FLEURS, normalization, Groq selection and FFmpeg rendering                                                                     |
+| Competitor Price Intelligence, 2026                                                | Additional systems; CV reports 17-brand scope, Render jobs and Supabase/PostgreSQL history                                                                                          |
+| ESLSCA AI BSc, 2023–Jun 2026; all six coursework topics                            | Education section                                                                                                                                                                   |
+| Scale Computing TPC, Infrastructure & Data Center Architecture, Sales Professional | Certifications and training section; no certification dates or credential IDs invented                                                                                              |
+| All CV technical skills                                                            | Six grouped capability domains; exact tools represented without assigning every tool to every project                                                                               |
 
-Sources: `gain/README.md`, mobile package.json, engine `progression.ts`, `liveAdaptationInference.ts`, `docs/LIVE-ADAPTATION-V2.md`, `docs/ML-EVALUATION.md`, and `docs/design-screens/README.md`.
+## Research evidence and limits
 
-- React Native / Expo / TypeScript / expo-sqlite verified from package manifests and source.
-- Deterministic next-session progression is separate from experimental next-set XGBoost inference.
-- SQLite is the source of truth; Cloudflare/D1 sync is optional.
-- Bundled inference and float32 reference parity are documented. Real-user performance, safety and strength gains are not claimed.
-- Android prerelease APKs, not app-store publication. iOS device validation is pending.
-- PNGs copied from `docs/design-screens` are actual web-rendered application screens using screenshot-only sample data, not native device photographs or field-validation evidence.
+The user explicitly confirmed publication and supplied https://ieeexplore.ieee.org/document/11700381. The CV identifies the title, first-author role, IMSA 2026 and July 2026. The author's public publication announcement also reports the IEEE publication: https://www.linkedin.com/posts/mohamed-el-molla_machinelearning-nlp-algorithmictrading-activity-7510621203988996096-NXjT.
 
-## RAGBase
+The IEEE landing page could not be fetched by the web reader or curl during this audit. Consequently no DOI, citation count, full author list, publication-date precision beyond the supplied CV, awards or impact claims were inferred. The site links directly to the user-provided IEEE document and describes publication based on the CV and user confirmation.
 
-Sources: `ragbase/README.md`, `backend/config.py`, `backend/retrieval.py`.
+Local `sentiment-trading/README.md`, `sentiment_trading/selector.py` and `modulator.py` support the implementation description. The metrics are the exact supplied benchmark values: DeBERTa 94.2% / 0.9420 / 0.060; FinBERT 89.2% / 0.8932 / 0.114; pmatorras 12.5% / 0.028 / 1.157. Classification results are not presented as trading returns. No new model evaluation was run by this website task.
 
-- Actual provider is Groq / Llama, not Ollama or Gemma.
-- all-MiniLM-L6-v2, 384 dimensions, top-k cosine retrieval and optional PostgreSQL full-text RRF.
-- Defaults: top_k 5, approximate chunk size 512, overlap 50, response cap 1024 tokens.
-- Current README documents Railway. Older local CV describes AWS; current code documentation takes precedence.
-- English-oriented embeddings limit Arabic retrieval. No latency, cost or multilingual quality guarantee is published.
-- Full-text vectors are computed at query time. GIN indexing and reranking remain future work.
-- Hosted availability was not independently checked; maturity text says so.
+## Repository checks
 
-## FPL Edge
+- **GAIN:** local source revision d17ecb6; README, progression engine, inference interpreter, live-adaptation and paired-evaluation docs inspected previously. Android prerelease and experimental model labels retained. Screens are real app web renders with sample data, not device validation.
+- **RAGBase:** local source revision 2f8e695; config/retrieval/README inspected. The user explicitly confirmed the move to Railway in this revision. Current deployment stays Railway, with in-memory PDF processing. AWS EC2/RDS/S3 and 4 GB swap on 2 GB RAM describe the earlier CV implementation. English-oriented embeddings, missing reranker and unknown retrieval benchmarks remain explicit limitations.
+- **FPL Edge:** local source revision 7d6078c; source snapshot, optimizer, route solver and tests inspected previously. Existing case study retained. No Elo implementation or forecast advantage invented.
+- **Trading engine:** public ElMolla10/Alpaca README inspected. CV supplies thesis, team size, contextual bandit and operating details. Public repository documents the prediction/risk/execution architecture. No live profitability claimed.
+- **MALIK / ASR:** public ElMolla10/arabic-long-form-asr README and `asr_experiments.py` inspected, including normalization and WER/CER helpers. Local MALIK workflow document inspected. The public source link covers the ASR component and optional clipper, not an asserted complete public release of every orchestration step.
+- **Price intelligence:** public ElMolla10/Competitor-tracker tree, targets.json, scraper.py and differ.py inspected. Shopify detection, Playwright fallback and noise-filtered diffs are implemented. CV reports historical scope of 17 brands; current targets.json has 11 entries. Both are disclosed in the expandable evidence details.
 
-Sources: `FPL-Edge/README.md`, `app/lib/optimizer.ts`, `app/lib/transfer-routes.ts`, `app/lib/team-quality.ts`, `tests/optimizer-constrained.test.mts`, `tests/optimizer-validation.test.mts`.
+## Remaining publication checks
 
-- Official FPL ingestion, constrained routes, quality gates, model-version cohorts and frozen receipts are documented in the source snapshot.
-- Drizzle / D1 and local-first browser persistence, not a Python optimizer backend.
-- No verified Elo implementation or real-world rank gain is asserted.
+- GAIN real-device screenshots and field-validation results.
+- RAGBase retrieval-quality benchmarks.
+- FPL Edge out-of-sample forecast/decision-quality results.
+- Reconcile the price tracker's 17-brand CV scope with 11 checked-in targets.
 
-## Identity and experience
-
-The portfolio brief supplies the name Mohamed Ehab, location Cairo, and current infrastructure role at Prosoft. `Downloads/base_cv.md` and `Downloads/huntai_updatedd/data/base_cv.md` supply imody10@gmail.com, github.com/ElMolla10 and linkedin.com/in/mohamed-el-molla. No employment dates or previous ML/DevOps roles were present in those files. The original PDF has been replaced by the exact user-selected `Downloads/Mohamed_ElMolla_AIEngineer_CV.pdf`. SHA-256: `294d62cb3f3e91f489837a359d9c2175b3174519313de40ebae07d65dbd8cbb8`. It is served as `/Mohamed_ElMolla_AIEngineer_CV.pdf`.
-
-## Remaining TODO_VERIFY items
-
-1. Prosoft start date, exact job title and approved responsibilities.
-2. Previous ML/DevOps employers, dates and responsibilities.
-3. Real-device GAIN screenshots and field-validation results.
-4. RAGBase current deployment health and retrieval benchmarks.
-5. FPL Edge out-of-sample forecasts and decision-quality results.
-6. Supporting repository evidence for PyTorch/Optuna, Ollama/Gemma/Whisper and Prosoft/Linux administration.
-
-No missing metric is replaced with a plausible number. No optional research archive was added without a full audit of those repositories. Skills marked ¹ are disclosed as CV-sourced.
-
-## Identity and hosting revision
-
-The user explicitly selected the replacement AI Engineer CV and provided a LinkedIn screenshot. The portrait asset is a deterministic crop of that photo, with no generated facial changes; screenshot UI is excluded. Mohamed Ehab is now the main H1. Cloudflare Pages project `mohamed-ehab-portfolio` has been created, reserving `https://mohamed-ehab-portfolio.pages.dev`. Canonical, OpenGraph/Twitter, robots and sitemap use this real origin; no localhost URL is exported. The app exports static files to `out/` for Cloudflare hosting.
+Previous placeholders for employer dates/responsibilities, previous internships, qualifications, skills evidence from the CV, domain and CV selection are resolved. Employer responsibilities are CV-sourced, not independently employer-certified. All website source and assets are in ElMolla10/mohamed-portfolio; deployment targets Cloudflare Pages.

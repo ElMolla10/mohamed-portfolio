@@ -52,3 +52,11 @@ The current build is a Next.js static export for Cloudflare Pages, not a Next.js
 ## Public deployment verification
 
 Production deployment completed at https://mohamed-ehab-portfolio.pages.dev/ (deployment ID `9a3dee72`). Live Chromium check: HTTP 200, H1 “Mohamed Ehab.”, portrait loaded at 506px source width, exact replacement CV SHA-256, social-image HTTP 200 with image/png, correct public canonical, indexable robots and sitemap, and no browser JavaScript errors. The live desktop screenshot was inspected after upload.
+
+## Complete CV / published research revision
+
+Extracted and visually reviewed the actual selected one-page CV. Added the three exact professional roles and dates; degree, coursework and Scale Computing training; all listed technical skills; phone and full name; three additional CV projects. Kept RAGBase on Railway as explicitly confirmed by the user, with AWS presented only as earlier implementation history.
+
+Research now has a hero link, navigation entry, prominent full-width section before project case studies, first-author/IEEE publication status, exact benchmark table, and primary IEEE + implementation links. No DOI or citation count was invented when Xplore could not be fetched.
+
+Local Wrangler runtime: four Playwright tests passed, including CV/publication discoverability, 320–1920px overflow checks, exact CV download, complete experience/education, source detail disclosure, clipboard, navigation, metadata, reduced motion and desktop/mobile axe WCAG checks. Captured and inspected desktop research, archive, experience, education and 320px viewport screenshots. Tall element screenshots can contain sticky-header artifacts; normal mobile viewport capture was separately inspected and shows no overlap or exposed skip link.

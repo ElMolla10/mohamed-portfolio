@@ -39,13 +39,13 @@ export const copy = {
     caption: "SYSTEMS THINKING / PRACTICAL EXECUTION",
   },
   skillsFootnote:
-    "¹ Listed in the supplied local CV; an additional repository case study has not been audited for these tools.",
+    "Capabilities combine the supplied CV, professional experience, and linked repositories. A listed tool does not imply that every project uses it; deployment and evaluation scopes are stated in the case studies.",
   about: {
     headline: ["The model is", "only the beginning"],
     paragraphs: [
-      "I’m Mohamed Ehab, an AI/ML and infrastructure engineer. I care about the distance between a promising model and software someone can actually use. That distance is where most of my work happens.",
+      "I’m Mohamed Ehab El Molla, an Artificial Intelligence BSc graduate from ESLSCA University and first-author IEEE IMSA 2026 researcher. I build ML pipelines, retrieval systems, NLP applications, and on-device AI, with infrastructure experience that keeps the deployment path in view.",
       "In GAIN, that means keeping workout state on the phone and making every recommendation overridable. In RAGBase, it means keeping the source attached to the answer. In FPL Edge, it means checking constraints before presenting a decision.",
-      "My infrastructure work reinforces the same habit: think about what happens when a connection fails, a process restarts, or an assumption stops holding. Build the recovery path alongside the happy path.",
+      "At Prosoft, I work on cloud and virtualization architectures, building on DevOps experience at BARQ Systems and ML pipeline development at CLS Learning Solutions. The same question follows the work: what happens when a connection fails, a process restarts, or an assumption stops holding?",
     ],
   },
   contact: {

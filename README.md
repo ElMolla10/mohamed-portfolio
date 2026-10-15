@@ -62,3 +62,7 @@ npm run test:e2e
 ```
 
 The suite checks layouts from 320 to 1920px, name and portrait visibility, keyboard tabs, mobile navigation, contact clipboard, exact CV SHA-256, metadata, canonical origin, reduced motion, and automated WCAG checks on desktop and mobile. `npm run format:check` checks formatting.
+
+## Published research and complete CV
+
+`src/data/research.ts` owns publication metadata, IEEE/source links and exact benchmarks. `src/data/additionalProjects.ts` contains the thesis trading engine, MALIK/Arabic ASR and price-intelligence cases. `src/data/credentials.ts` contains education, coursework and Scale Computing credentials. Employment dates and responsibilities now come from the selected PDF, and the current RAGBase deployment remains Railway. See `docs/CONTENT-AUDIT.md` for a field-by-field CV coverage map and source discrepancies.

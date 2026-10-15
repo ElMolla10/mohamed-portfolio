@@ -1,3 +1,6 @@
+import { Research } from "@/components/research";
+import { AdditionalProjects } from "@/components/additional-projects";
+import { Credentials } from "@/components/credentials";
 import { copy } from "@/data/copy";
 import { Github, Linkedin } from "@/components/brand-icons";
 import {
@@ -50,7 +53,8 @@ export default function Home() {
                 <span className="accent">.</span>
               </h1>
               <p className="hero-role">
-                ML Engineer <span>/</span> Software &amp; Infrastructure
+                ML &amp; MLOps Engineer <span>/</span> Software &amp;
+                Infrastructure
               </p>
               <p className="hero-positioning">
                 {copy.hero.headline[0]}
@@ -66,6 +70,11 @@ export default function Home() {
                 {copy.hero.description[0]}
                 <br className="desktop-break" /> {copy.hero.description[1]}
               </p>
+              <a className="hero-publication" href="#research">
+                <span className="publication-mark">IEEE</span>
+                <span>First-author research · published in IEEE Xplore</span>
+                <ArrowUpRight size={15} />
+              </a>
               <div className="hero-actions">
                 <a className="button primary" href="#gain">
                   Explore Case Studies <ArrowDown size={16} />
@@ -107,9 +116,10 @@ export default function Home() {
             </a>
           </div>
         </section>
+        <Research />
         <section className="projects-section section-shell" id="projects">
           <SectionHeading
-            number="01"
+            number="02"
             title={copy.sections.projects.title}
             description={copy.sections.projects.description}
           />
@@ -123,6 +133,7 @@ export default function Home() {
               </Reveal>
             ))}
           </div>
+          <AdditionalProjects />
           <div className="source-note">
             <span className="status-dot" />
             <p>
@@ -134,7 +145,7 @@ export default function Home() {
         </section>
         <section className="experience-section section-shell" id="experience">
           <SectionHeading
-            number="02"
+            number="03"
             title={copy.sections.experience.title}
             description={copy.sections.experience.description}
           />
@@ -174,9 +185,10 @@ export default function Home() {
             </ol>
           </div>
         </section>
+        <Credentials />
         <section className="skills-section section-shell" id="skills">
           <SectionHeading
-            number="03"
+            number="05"
             title={copy.sections.skills.title}
             description={copy.sections.skills.description}
           />
@@ -208,7 +220,7 @@ export default function Home() {
         </section>
         <section className="about-section section-shell" id="about">
           <div>
-            <span className="eyebrow">04 / THE ENGINEER</span>
+            <span className="eyebrow">06 / THE ENGINEER</span>
             <h2>
               The model is
               <br />
@@ -251,6 +263,9 @@ export default function Home() {
                 <CopyEmail />
               </div>
               <div className="contact-links">
+                <a href={`tel:${siteConfig.phoneHref}`}>
+                  {siteConfig.phoneDisplay}
+                </a>
                 <SourceLink href={siteConfig.linkedin}>LinkedIn</SourceLink>
                 <SourceLink href={siteConfig.github}>GitHub</SourceLink>
                 <a href={siteConfig.cv} download>
@@ -279,9 +294,9 @@ export default function Home() {
             Publication checks <ArrowUpRight size={13} />
           </summary>
           <p>
-            Contact details were checked against the supplied local CV. Specific
-            employment responsibilities and missing validation results remain
-            flagged throughout the site.
+            Professional experience, education, certifications, and skills are
+            sourced from the supplied CV. Repository details and evaluation
+            limits are distinguished in each case study.
           </p>
         </details>
       </aside>

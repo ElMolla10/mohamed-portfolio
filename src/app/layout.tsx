@@ -15,7 +15,7 @@ const mono = JetBrains_Mono({
 const url = publicUrl();
 export const metadata: Metadata = {
   metadataBase: url ? new URL(url) : undefined,
-  title: "Mohamed Ehab — ML Engineer & Infrastructure",
+  title: "Mohamed Ehab — ML Engineer & IEEE Researcher",
   description: siteConfig.description,
   applicationName: "Mohamed Ehab Portfolio",
   keywords: [
@@ -23,6 +23,8 @@ export const metadata: Metadata = {
     "ML Engineer",
     "Cairo",
     "MLOps",
+    "IEEE IMSA 2026",
+    "Published research",
     "RAG",
     "React Native",
     "Infrastructure",

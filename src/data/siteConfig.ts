@@ -1,10 +1,14 @@
 export type Verification = `[TODO_VERIFY: ${string}]`;
 export const siteConfig = {
   name: "Mohamed Ehab",
-  title: "ML Engineer · Software & Infrastructure",
+  fullName: "Mohamed Ehab El Molla",
+  title:
+    "Machine Learning & MLOps Engineer | Applied AI, NLP & Cloud Infrastructure",
   description:
-    "Mohamed Ehab is an AI/ML and infrastructure engineer in Cairo, building offline-first mobile intelligence, retrieval systems, and algorithmic decision engines. Explore source-backed engineering case studies.",
-  location: "Cairo, Egypt",
+    "Mohamed Ehab is a machine learning and MLOps engineer, first-author IEEE IMSA 2026 researcher, and cloud infrastructure specialist in Cairo. Explore published research, on-device AI, RAG, and source-backed engineering projects.",
+  location: "Dokki, Cairo, Egypt",
+  phoneDisplay: "+20 111 506 6400",
+  phoneHref: "+201115066400",
   email: "imody10@gmail.com",
   github: "https://github.com/ElMolla10",
   linkedin: "https://www.linkedin.com/in/mohamed-el-molla/",

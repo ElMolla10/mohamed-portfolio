@@ -9,28 +9,27 @@ export interface Experience {
 }
 export const experience: Experience[] = [
   {
-    role: "Infrastructure Engineering",
+    role: "Infrastructure Specialist (Cloud & Virtualization)",
     organization: "Prosoft",
-    period: "[TODO_VERIFY: Prosoft start date]",
+    period: "Aug 2026 – Present",
     description:
-      "Current infrastructure role, as supplied in the portfolio brief. The scope of enterprise reliability, deployment, networking, and systems administration needs confirmation before specific responsibilities are published.",
-    status: "CURRENT · USER-SUPPLIED",
-    verification: "[TODO_VERIFY: exact title and approved responsibilities]",
+      "Lead evaluations of Scale Computing HyperCore and Platform9 Private Cloud Director for enterprise VMware migrations. Design highly available compute, storage, and networking; size bare-metal and private-cloud clusters; translate fault-tolerance and hybrid-cloud requirements into architectures for government, manufacturing, and industrial accounts.",
+    status: "CURRENT ROLE",
   },
   {
-    role: "Applied AI & product engineering",
-    organization: "Independent projects",
-    period: "Repository-backed work",
+    role: "DevOps & Infrastructure Engineer Intern",
+    organization: "BARQ Systems",
+    period: "Aug 2025",
     description:
-      "Built GAIN’s offline mobile architecture, RAGBase’s retrieval pipeline, and FPL Edge’s constrained decision engine. These are personal engineering projects, not employment claims.",
-    status: "PROJECT EXPERIENCE",
+      "Automated deployment workflows with Docker and CI/CD. Supported Linux administration, networking, and infrastructure monitoring for scalable enterprise deployments and consistent environments.",
+    status: "INTERNSHIP",
   },
   {
-    role: "Previous ML / DevOps roles",
-    organization: "Details pending",
-    period: "[TODO_VERIFY: employers and dates]",
+    role: "Machine Learning Engineer Intern",
+    organization: "CLS Learning Solutions",
+    period: "Apr 2025 – Jul 2025",
     description:
-      "Add verified internships or previous roles, with exact dates and responsibilities.",
-    status: "VERIFICATION PENDING",
+      "Built classification and predictive pipelines with Python, scikit-learn, XGBoost, and Pandas, covering validation, feature engineering, and cross-validation. Used Optuna, ROC-AUC, macro-F1, and experiment/artifact tracking to make model development reproducible.",
+    status: "INTERNSHIP",
   },
 ];
