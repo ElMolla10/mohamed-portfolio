@@ -1,4 +1,3 @@
-import type { Verification } from "./siteConfig";
 export interface Source {
   label: string;
   url: string;
@@ -17,11 +16,11 @@ export interface Project {
   limitations: string;
   stack: string[];
   sources: Source[];
-  verification?: Verification;
+  validation: string;
 }
 export const gain = {
   name: "GAIN",
-  maturity: "Android prerelease",
+  maturity: "Mobile prerelease",
   headline: "Gym App with AI Intelligence. Even Offline.",
   description:
     "An Arabic + English strength-training app that turns logged sets into an explicit plan for what comes next. Local persistence, deterministic progression, and experimental on-device adaptation in one complete product.",
@@ -71,10 +70,28 @@ export const gain = {
       note: "Interpreter parity ≠ predictive accuracy · no strength-gain claim",
     },
   ],
+  localizationLabel: "Arabic + English · direction-aware interface",
+  demo: {
+    src: "/videos/gain-iphone-live-adaptation.mp4",
+    poster: "/images/gain-iphone-ai-poster.webp",
+    captions: "/captions/gain-iphone-demo-en.vtt",
+    label:
+      "GAIN iPhone demo: log a set and apply a lighter next-set recommendation",
+    durationLabel: "16 SEC",
+    caption: "Real iPhone recording · experimental next-set adaptation",
+    description:
+      "27.5 kg × 4 reps logged. GAIN suggests 25 kg for the next set, and the suggestion is applied.",
+    walkthrough: [
+      "00:00 — Start a workout on iPhone.",
+      "00:02 — Enter 27.5 kg and 4 reps, then save the set.",
+      "00:07 — Experimental AI displays a lighter next-set suggestion: 25 kg.",
+      "00:09 — Apply the suggestion and continue logging at 25 kg.",
+    ],
+  },
   screenshotCaption:
     "Repository UI web renders · sample data · not native device captures",
-  verification:
-    "[TODO_VERIFY: real-device screenshots and field-validation results]" as Verification,
+  validation:
+    "The recorded iPhone interaction demonstrates logging, a lighter-load suggestion, and user-controlled application. Broader device performance, predictive accuracy, and field outcomes remain unmeasured.",
 } as const;
 export const projects: Project[] = [
   {
@@ -115,7 +132,8 @@ export const projects: Project[] = [
         url: "https://github.com/ElMolla10/ragbase/blob/master/backend/retrieval.py",
       },
     ],
-    verification: "[TODO_VERIFY: current retrieval benchmarks]",
+    validation:
+      "Document ingestion, cited retrieval, and query logging are implemented. Retrieval-quality and latency benchmarks have not yet been established.",
   },
   {
     id: "fpl-edge",
@@ -153,7 +171,7 @@ export const projects: Project[] = [
         url: "https://github.com/ElMolla10/FPL-Edge/blob/main/app/lib/optimizer.ts",
       },
     ],
-    verification:
-      "[TODO_VERIFY: out-of-sample forecast and decision-quality results]",
+    validation:
+      "Forecasts and decision audits are implemented. Out-of-sample predictive advantage and improvements in player or team outcomes have not been established.",
   },
 ];

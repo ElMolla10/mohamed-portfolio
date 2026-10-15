@@ -8,7 +8,7 @@ export const copy = {
       "from the model to the infrastructure.",
     ],
     description: [
-      "On-device intelligence, retrieval pipelines, and decision engines.",
+      "On-device intelligence, retrieval systems, and Arabic speech pipelines.",
       "Complete software, with the architecture and code to back it up.",
     ],
     caption: ["THINK IN SYSTEMS.", "SHIP THE WHOLE THING."],

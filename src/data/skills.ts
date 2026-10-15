@@ -3,7 +3,6 @@ export interface SkillDomain {
   tools: string[];
   evidence: string;
   href: string;
-  pending?: string;
 }
 export const skills: SkillDomain[] = [
   {

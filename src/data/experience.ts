@@ -1,11 +1,9 @@
-import type { Verification } from "./siteConfig";
 export interface Experience {
   role: string;
   organization: string;
-  period: string | Verification;
+  period: string;
   description: string;
   status: string;
-  verification?: Verification;
 }
 export const experience: Experience[] = [
   {

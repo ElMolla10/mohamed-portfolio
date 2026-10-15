@@ -223,3 +223,69 @@ test("published research and complete CV sections are discoverable", async ({
     page.getByRole("link", { name: "+20 111 506 6400" }),
   ).toHaveAttribute("href", "tel:+201115066400");
 });
+
+test("real iPhone recording plays and seeks; validation notes and Arabic evidence remain clear", async ({
+  page,
+}) => {
+  await page.goto("/");
+  expect(await page.content()).not.toContain("TODO_VERIFY");
+  const gain = page.locator("#gain");
+  await expect(gain.locator(".maturity")).toHaveText("Mobile prerelease");
+  await expect(gain.locator(".validation-note")).toContainText(
+    "recorded iPhone interaction",
+  );
+  await expect(page.locator("#ragbase .validation-note")).toContainText(
+    "benchmarks have not yet been established",
+  );
+  await expect(
+    page.getByRole("heading", { name: "Arabic interfaces. Arabic speech." }),
+  ).toBeVisible();
+  await gain.locator(".gain-stills summary").click();
+  await expect(
+    gain.getByRole("img", { name: /GAIN Arabic Today screen/ }),
+  ).toBeVisible();
+  await gain.locator(".gain-stills summary").click();
+  await gain.locator(".gain-demo-transcript summary").click();
+  await expect(gain.locator(".gain-demo-transcript")).toContainText("25 kg");
+  const video = gain.locator("video");
+  await expect(video).toHaveAttribute("preload", "none");
+  await expect(video).not.toHaveAttribute("autoplay");
+  expect(await video.evaluate((el: HTMLVideoElement) => el.paused)).toBe(true);
+  await video.scrollIntoViewIfNeeded();
+  await gain.getByRole("button", { name: "Play iPhone demo" }).click();
+  await expect
+    .poll(() => video.evaluate((el: HTMLVideoElement) => el.currentTime))
+    .toBeGreaterThan(0.3);
+  expect(
+    await video.evaluate((el: HTMLVideoElement) => el.duration),
+  ).toBeCloseTo(15.603, 1);
+  expect(
+    await video.evaluate((el: HTMLVideoElement) => [
+      el.videoWidth,
+      el.videoHeight,
+    ]),
+  ).toEqual([384, 848]);
+  await video.evaluate((el: HTMLVideoElement) => el.pause());
+  await video.evaluate(
+    (el: HTMLVideoElement) =>
+      new Promise<void>((resolve) => {
+        el.addEventListener("seeked", () => resolve(), { once: true });
+        el.currentTime = 7.5;
+      }),
+  );
+  expect(
+    await video.evaluate((el: HTMLVideoElement) => el.currentTime),
+  ).toBeCloseTo(7.5, 1);
+  expect(await video.evaluate((el: HTMLVideoElement) => el.currentSrc)).toMatch(
+    /^blob:/,
+  );
+  const recording = await page.request.get(
+    "/videos/gain-iphone-live-adaptation.mp4",
+  );
+  expect(recording.status()).toBe(200);
+  expect(recording.headers()["content-type"]).toContain("video/mp4");
+  expect((await recording.body()).length).toBe(1422671);
+  const captions = await page.request.get("/captions/gain-iphone-demo-en.vtt");
+  expect(captions.status()).toBe(200);
+  expect(await captions.text()).toContain("25 kg");
+});

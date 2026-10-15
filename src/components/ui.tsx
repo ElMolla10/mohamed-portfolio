@@ -22,8 +22,13 @@ export function SourceLink({
     </a>
   );
 }
-export function Verify({ children }: { children: string }) {
-  return <span className="verify">{children}</span>;
+export function ValidationNote({ children }: { children: string }) {
+  return (
+    <div className="validation-note">
+      <span className="validation-label">Validation status</span>
+      <p>{children}</p>
+    </div>
+  );
 }
 export function SectionHeading({
   number,

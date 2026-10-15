@@ -8,7 +8,7 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import type { Project } from "@/data/projects";
-import { SourceLink, Tags, Verify } from "./ui";
+import { SourceLink, Tags, ValidationNote } from "./ui";
 export function ProjectCaseStudy({ project }: { project: Project }) {
   const isRag = project.id === "ragbase";
   return (
@@ -124,7 +124,9 @@ export function ProjectCaseStudy({ project }: { project: Project }) {
             <p>{project.outcomes}</p>
             <h4>LIMITATIONS & EVALUATION</h4>
             <p>{project.limitations}</p>
-            {project.verification && <Verify>{project.verification}</Verify>}
+            {project.validation && (
+              <ValidationNote>{project.validation}</ValidationNote>
+            )}
             <SourceLink href={project.sources[1].url}>
               {project.sources[1].label}
             </SourceLink>

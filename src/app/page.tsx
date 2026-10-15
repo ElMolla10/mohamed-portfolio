@@ -1,3 +1,4 @@
+import { Localization } from "@/components/localization";
 import { Research } from "@/components/research";
 import { AdditionalProjects } from "@/components/additional-projects";
 import { Credentials } from "@/components/credentials";
@@ -26,7 +27,7 @@ import {
 } from "@/components/interactive";
 import { GainCaseStudy } from "@/components/gain-case-study";
 import { ProjectCaseStudy } from "@/components/project-case-study";
-import { SectionHeading, SourceLink, Verify } from "@/components/ui";
+import { SectionHeading, SourceLink } from "@/components/ui";
 import { projects } from "@/data/projects";
 import { experience } from "@/data/experience";
 import { skills } from "@/data/skills";
@@ -134,6 +135,7 @@ export default function Home() {
             ))}
           </div>
           <AdditionalProjects />
+          <Localization />
           <div className="source-note">
             <span className="status-dot" />
             <p>
@@ -168,18 +170,11 @@ export default function Home() {
                   />
                   <div className="timeline-meta">
                     <span>{item.status}</span>
-                    <span>
-                      {item.period.startsWith("[TODO_VERIFY") ? (
-                        <Verify>{item.period}</Verify>
-                      ) : (
-                        item.period
-                      )}
-                    </span>
+                    <span>{item.period}</span>
                   </div>
                   <h3>{item.role}</h3>
                   <p className="organization">{item.organization}</p>
                   <p>{item.description}</p>
-                  {item.verification && <Verify>{item.verification}</Verify>}
                 </li>
               ))}
             </ol>
@@ -211,7 +206,6 @@ export default function Home() {
                     {skill.evidence}
                     <ArrowUpRight size={14} />
                   </a>
-                  {skill.pending && <Verify>{skill.pending}</Verify>}
                 </Reveal>
               );
             })}

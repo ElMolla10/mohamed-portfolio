@@ -1,4 +1,3 @@
-import type { Verification } from "./siteConfig";
 export interface AdditionalProject {
   id: string;
   name: string;
@@ -12,7 +11,7 @@ export interface AdditionalProject {
   source: string;
   sourceLabel: string;
   evidenceNote: string;
-  verification?: Verification;
+  validation?: string;
 }
 export const additionalProjects: AdditionalProject[] = [
   {
@@ -94,7 +93,7 @@ export const additionalProjects: AdditionalProject[] = [
     sourceLabel: "Price intelligence source",
     evidenceNote:
       "17 brands is the CV-reported project scope, not a live count inferred from the current repository.",
-    verification:
-      "[TODO_VERIFY: reconcile 17-brand historical scope with 11 checked-in targets]",
+    validation:
+      "The CV reports a historical scope of 17 brands; the current repository configuration lists 11. The checked-in configuration is not presented as evidence of 17 active targets.",
   },
 ];

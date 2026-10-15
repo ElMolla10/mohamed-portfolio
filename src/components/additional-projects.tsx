@@ -1,6 +1,6 @@
 import { ArrowRight, AudioLines, TrendingUp, Workflow } from "lucide-react";
 import { additionalProjects } from "@/data/additionalProjects";
-import { SourceLink, Tags, Verify } from "./ui";
+import { SourceLink, Tags, ValidationNote } from "./ui";
 import { Reveal } from "./interactive";
 const icons = [TrendingUp, AudioLines, Workflow];
 export function AdditionalProjects() {
@@ -49,8 +49,8 @@ export function AdditionalProjects() {
                   </summary>
                   <p>{project.details}</p>
                   <p className="evidence-note">{project.evidenceNote}</p>
-                  {project.verification && (
-                    <Verify>{project.verification}</Verify>
+                  {project.validation && (
+                    <ValidationNote>{project.validation}</ValidationNote>
                   )}
                 </details>
                 <Tags items={project.stack} />

@@ -68,3 +68,11 @@ The suite checks layouts from 320 to 1920px, name and portrait visibility, keybo
 `src/data/research.ts` owns publication metadata, IEEE/source links and exact benchmarks. `src/data/additionalProjects.ts` contains the thesis trading engine, MALIK/Arabic ASR and price-intelligence cases. `src/data/credentials.ts` contains education, coursework and Scale Computing credentials. Employment dates and responsibilities now come from the selected PDF, and the current RAGBase deployment remains Railway. See `docs/CONTENT-AUDIT.md` for a field-by-field CV coverage map and source discrepancies.
 
 The research section also provides `public/research/IMSA-2026-Sentiment-Modulation.pdf`, a four-page native Word export of the user-provided camera-ready manuscript. The download and IEEE Xplore links remain separate. Cloudflare serves the PDF with an attachment filename; the browser suite verifies its bytes and the actual download event.
+
+## Device recording and validation notes
+
+GAIN includes the supplied iPhone recording at `public/videos/gain-iphone-live-adaptation.mp4` (15.603s, 384×848 H.264). The web copy is a fast-start remux without audio or metadata; video frames are unchanged. Native controls, a poster, optional English walkthrough cues and a text walkthrough make the clip accessible without autoplay or eager video loading. The recording demonstrates the interaction, not offline connectivity, predictive accuracy or broad device performance.
+
+Public copy uses **Validation status** notes. The internal `[TODO_VERIFY]` checklist lives in `docs/VALIDATION-CHECKLIST.md` and is excluded from the deployed content. `src/data/localization.ts` and its component highlight GAIN's Arabic/English localization and the Arabic ASR pipeline, with separate evidence boundaries for each.
+
+For a Cloudflare-hosted browser run, set `PLAYWRIGHT_BASE_URL` to the deployed URL. The media test verifies actual play, pause and seeking. The static host returned HTTP 200 to Range requests during validation, so manual play fetches the small clip once into a revocable in-memory URL for reliable native scrubbing; no video payload is fetched before the play action.

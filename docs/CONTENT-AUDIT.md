@@ -31,7 +31,7 @@ Local `sentiment-trading/README.md`, `sentiment_trading/selector.py` and `modula
 
 ## Repository checks
 
-- **GAIN:** local source revision d17ecb6; README, progression engine, inference interpreter, live-adaptation and paired-evaluation docs inspected previously. Android prerelease and experimental model labels retained. Screens are real app web renders with sample data, not device validation.
+- **GAIN:** local source revision d17ecb6; README, progression engine, inference interpreter, live-adaptation and paired-evaluation docs inspected previously. The original source documented Android prereleases. A subsequently supplied iPhone recording now supports a Mobile prerelease label and a narrow device-workflow demonstration. Existing still images remain labeled web renders with sample data.
 - **RAGBase:** local source revision 2f8e695; config/retrieval/README inspected. The user explicitly confirmed the move to Railway in this revision. Current deployment stays Railway, with in-memory PDF processing. AWS EC2/RDS/S3 and 4 GB swap on 2 GB RAM describe the earlier CV implementation. English-oriented embeddings, missing reranker and unknown retrieval benchmarks remain explicit limitations.
 - **FPL Edge:** local source revision 7d6078c; source snapshot, optimizer, route solver and tests inspected previously. Existing case study retained. No Elo implementation or forecast advantage invented.
 - **Trading engine:** public ElMolla10/Alpaca README inspected. CV supplies thesis, team size, contextual bandit and operating details. Public repository documents the prediction/risk/execution architecture. No live profitability claimed.
@@ -40,7 +40,7 @@ Local `sentiment-trading/README.md`, `sentiment_trading/selector.py` and `modula
 
 ## Remaining publication checks
 
-- GAIN real-device screenshots and field-validation results.
+- Broader GAIN device performance, field accuracy, and real Arabic-locale/assistive-technology validation.
 - RAGBase retrieval-quality benchmarks.
 - FPL Edge out-of-sample forecast/decision-quality results.
 - Reconcile the price tracker's 17-brand CV scope with 11 checked-in targets.
@@ -52,3 +52,13 @@ Previous placeholders for employer dates/responsibilities, previous internships,
 The user supplied `Desktop/all/168_camera_ready_IEEE_formatted_updated`, a Finder alias beside the actual `168_camera_ready_IEEE_formatted_updated.docx`. That DOCX was opened read-only in installed Microsoft Word and exported through Word's native PDF export. The source document's text, author block, layout, tables, figure and equations were preserved; no substantive editing or reformatting was performed.
 
 The resulting 4-page PDF was inspected on all four rendered pages and added as `public/research/IMSA-2026-Sentiment-Modulation.pdf` (SHA-256 `d10c753ccab7441c26214a6dbc13c67c29da005b454654614c3489b2776e1444`). This is labeled an author-provided camera-ready manuscript, separate from the IEEE Xplore publisher landing page. A second local copy was placed next to the supplied DOCX as `168_camera_ready_IEEE_formatted_updated.pdf`. The editable DOCX is not included in the website repository.
+
+## Real iPhone recording, public validation notes, and language evidence
+
+The user supplied `Downloads/WhatsApp Video 2026-10-15 at 22.42.42.mp4` and identified it as a real iPhone interaction. The 15.603-second, 384×848 H.264 clip was inspected at several points. It shows 27.5 kg × 4 reps saved, an Experimental AI suggestion of 25 kg, and that suggestion applied to the next set. A 5G indicator is visible, so the recording is not described as offline evidence. No predictive accuracy or safety outcome is inferred from the clip.
+
+The website serves an audio-free, metadata-free fast-start remux with unchanged video frames, plus a WebP poster from the suggestion at about 8 seconds. Playback is manual, with native controls after start, optional English walkthrough cues, and a text walkthrough. The small clip is fetched only after the play action and played from a revocable in-memory URL so seeking does not depend on HTTP Range support.
+
+Public raw TODO markers have been removed from content data and presentation. GAIN, RAGBase, FPL Edge and price-intelligence cases use readable Validation status notes. The detailed follow-up checklist is preserved in `docs/VALIDATION-CHECKLIST.md`, outside the website export.
+
+GAIN's Arabic/English strings, direction-aware layout and parity-test source were inspected alongside `docs/A11Y-RTL-CHECKLIST.md`, which explicitly separates code-level checks from device/assistive-technology validation. An existing Arabic Today web render was copied into the optional interface previews. A language feature section links the localization layer and Arabic ASR normalization/evaluation source; it does not imply Arabic retrieval parity in RAGBase.

@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -9,12 +9,54 @@ import {
   Dumbbell,
   Smartphone,
   Cpu,
+  Play,
 } from "lucide-react";
 import { gain } from "@/data/projects";
 import { onTabKey } from "./interactive";
-import { SourceLink, Tags, Verify } from "./ui";
+import { SourceLink, Tags, ValidationNote } from "./ui";
 export function GainCaseStudy() {
   const [active, setActive] = useState(0);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [videoStarted, setVideoStarted] = useState(false);
+  const [playbackError, setPlaybackError] = useState(false);
+  const [videoLoading, setVideoLoading] = useState(false);
+  const mediaUrl = useRef<string | null>(null);
+  const mediaRequest = useRef<AbortController | null>(null);
+  useEffect(
+    () => () => {
+      mediaRequest.current?.abort();
+      if (mediaUrl.current) URL.revokeObjectURL(mediaUrl.current);
+    },
+    [],
+  );
+  async function playDemo() {
+    if (!videoRef.current || videoLoading) return;
+    setPlaybackError(false);
+    setVideoLoading(true);
+    const controller = new AbortController();
+    mediaRequest.current = controller;
+    try {
+      // Fetch this small clip only on demand. A local blob supports reliable
+      // native seeking even when the static host ignores HTTP Range headers.
+      if (!mediaUrl.current) {
+        const response = await fetch(gain.demo.src, {
+          signal: controller.signal,
+        });
+        if (!response.ok) throw new Error("Recording unavailable");
+        const clip = await response.blob();
+        if (controller.signal.aborted) return;
+        mediaUrl.current = URL.createObjectURL(clip);
+      }
+      const video = videoRef.current;
+      if (!video) return;
+      video.src = mediaUrl.current;
+      await video.play();
+    } catch {
+      if (!controller.signal.aborted) setPlaybackError(true);
+    } finally {
+      if (!controller.signal.aborted) setVideoLoading(false);
+    }
+  }
   const tab = gain.tabs[active];
   return (
     <article id="gain" className="gain-case">
@@ -38,6 +80,12 @@ export function GainCaseStudy() {
           </div>
           <h4>{gain.headline}</h4>
           <p>{gain.description}</p>
+          <div className="gain-language-note">
+            <span lang="ar" dir="rtl">
+              العربية
+            </span>
+            <span>{gain.localizationLabel}</span>
+          </div>
           <Tags items={gain.stack} />
           <div className="gain-links">
             {gain.sources.map((source) => (
@@ -51,34 +99,116 @@ export function GainCaseStudy() {
             <span>Saved locally. Explained clearly. Accepted by the user.</span>
           </div>
         </div>
-        <figure className="gain-visual">
-          <div className="visual-grid" />
-          <span className="visual-label mono">PRODUCT / MOBILE</span>
-          <div className="phone phone-back">
-            <div className="phone-speaker" />
-            <Image
-              src="/images/gain-workout.png"
-              alt="GAIN workout logger web render with sample data"
-              width={824}
-              height={1784}
-              sizes="230px"
-            />
-          </div>
-          <div className="phone phone-front">
-            <div className="phone-speaker" />
-            <Image
-              src="/images/gain-today.png"
-              alt="GAIN Today screen web render showing sample workout targets"
-              width={824}
-              height={1784}
-              sizes="250px"
-            />
-          </div>
-          <span className="offline-chip">
-            <span className="status-dot" /> LOCAL-FIRST BY DESIGN
-          </span>
-          <figcaption>{gain.screenshotCaption}</figcaption>
-        </figure>
+        <div className="gain-media-column">
+          <figure className="gain-video-visual">
+            <div className="visual-grid" aria-hidden="true" />
+            <div className="gain-video-header mono">
+              <span>
+                <span className="status-dot" /> RECORDED ON IPHONE
+              </span>
+              <span>{gain.demo.durationLabel}</span>
+            </div>
+            <div className="gain-video-player">
+              <video
+                ref={videoRef}
+                onPlay={() => setVideoStarted(true)}
+                className="gain-device-video"
+                controls={videoStarted}
+                playsInline
+                muted
+                preload="none"
+                poster={gain.demo.poster}
+                width={384}
+                height={848}
+                aria-label={gain.demo.label}
+                aria-describedby="gain-demo-caption"
+              >
+                <source src={gain.demo.src} type="video/mp4" />
+                <track
+                  kind="captions"
+                  src={gain.demo.captions}
+                  srcLang="en"
+                  label="English walkthrough"
+                />
+                Your browser does not support embedded video.{" "}
+                <a href={gain.demo.src}>Watch the iPhone recording</a>.
+              </video>
+              {!videoStarted && (
+                <button
+                  className="gain-play-button"
+                  onClick={playDemo}
+                  disabled={videoLoading}
+                >
+                  <Play size={16} fill="currentColor" />
+                  {videoLoading ? "Loading demo…" : "Play iPhone demo"}
+                </button>
+              )}
+            </div>
+            {playbackError && (
+              <p className="video-error" role="status">
+                Playback could not start.{" "}
+                <a href={gain.demo.src}>Open the recording</a>.
+              </p>
+            )}
+            <figcaption id="gain-demo-caption">
+              <strong>{gain.demo.caption}</strong>
+              <span>{gain.demo.description}</span>
+            </figcaption>
+          </figure>
+          <details className="gain-demo-transcript">
+            <summary>
+              Read the demo walkthrough <span>+</span>
+            </summary>
+            <ol>
+              {gain.demo.walkthrough.map((step) => (
+                <li key={step}>{step}</li>
+              ))}
+            </ol>
+          </details>
+          <details className="gain-stills">
+            <summary>
+              Interface previews · Arabic + English <span>+</span>
+            </summary>
+            <div className="gain-stills-grid">
+              <figure>
+                <Image
+                  src="/images/gain-today.png"
+                  alt="GAIN English Today screen, repository web render with sample data"
+                  width={824}
+                  height={1784}
+                  sizes="150px"
+                />
+                <figcaption>English · Today</figcaption>
+              </figure>
+              <figure>
+                <Image
+                  src="/images/gain-today-ar.png"
+                  alt="GAIN Arabic Today screen, repository web render with sample data"
+                  width={824}
+                  height={1784}
+                  sizes="150px"
+                />
+                <figcaption>
+                  <span lang="ar" dir="rtl">
+                    العربية
+                  </span>{" "}
+                  · Today
+                </figcaption>
+              </figure>
+              <figure>
+                <Image
+                  src="/images/gain-workout.png"
+                  alt="GAIN workout logger, repository web render with sample data"
+                  width={824}
+                  height={1784}
+                  sizes="150px"
+                />
+                <figcaption>Workout logger</figcaption>
+              </figure>
+            </div>
+            <p>{gain.screenshotCaption}</p>
+          </details>
+        </div>
       </div>
       <div className="gain-deepdive" id="architecture">
         <div
@@ -157,7 +287,7 @@ export function GainCaseStudy() {
           </div>
         </div>
         <div className="gain-verification">
-          <Verify>{gain.verification}</Verify>
+          <ValidationNote>{gain.validation}</ValidationNote>
           <span className="mono">
             Guardrails are behavior, not an accuracy claim.
           </span>

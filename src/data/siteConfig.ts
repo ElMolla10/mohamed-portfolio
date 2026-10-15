@@ -1,4 +1,3 @@
-export type Verification = `[TODO_VERIFY: ${string}]`;
 export const siteConfig = {
   name: "Mohamed Ehab",
   fullName: "Mohamed Ehab El Molla",
