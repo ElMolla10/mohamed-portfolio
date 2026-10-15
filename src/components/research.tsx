@@ -1,4 +1,10 @@
-import { ArrowUpRight, BookOpen, FileCheck2, FlaskConical } from "lucide-react";
+import {
+  ArrowUpRight,
+  BookOpen,
+  Download,
+  FileCheck2,
+  FlaskConical,
+} from "lucide-react";
 import { research } from "@/data/research";
 import { SourceLink } from "./ui";
 import { Reveal } from "./interactive";
@@ -58,10 +64,19 @@ export function Research() {
                 Read the published paper
                 <ArrowUpRight size={16} />
               </a>
+              <a
+                className="button secondary"
+                href={research.pdfUrl}
+                download={research.pdfFilename}
+              >
+                <Download size={15} />
+                Download paper (PDF)
+              </a>
               <SourceLink href={research.sourceUrl}>
                 Explore implementation
               </SourceLink>
             </div>
+            <p className="research-download-note">{research.pdfDescription}</p>
             <p className="research-period mono">
               {research.venue} / {research.period} / IEEE document 11700381
             </p>

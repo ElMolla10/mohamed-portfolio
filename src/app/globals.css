@@ -3076,3 +3076,9 @@ h1 {
     padding: 24px;
   }
 }
+
+.research-download-note {
+  color: #a1b3a8;
+  font: 9px/1.9 var(--mono);
+  margin-top: 14px;
+}

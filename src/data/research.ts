@@ -14,6 +14,9 @@ export const research = {
   role: "First author",
   status: "Published in IEEE Xplore",
   url: "https://ieeexplore.ieee.org/document/11700381",
+  pdfUrl: "/research/IMSA-2026-Sentiment-Modulation.pdf",
+  pdfFilename: "IMSA-2026-Sentiment-Modulation.pdf",
+  pdfDescription: "Author-provided camera-ready manuscript · 4 pages",
   sourceUrl: "https://github.com/ElMolla10/sentiment-trading",
   description:
     "Which financial language model should a trading system trust? And how should sentiment change a price signal without reversing its direction? This work connects automatic model benchmarking with sign-aware signal fusion.",

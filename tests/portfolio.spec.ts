@@ -148,6 +148,30 @@ test("published research and complete CV sections are discoverable", async ({
   await expect(
     research.getByRole("link", { name: "Read the published paper" }),
   ).toHaveAttribute("href", "https://ieeexplore.ieee.org/document/11700381");
+  const paperLink = research.getByRole("link", {
+    name: "Download paper (PDF)",
+  });
+  await expect(paperLink).toHaveAttribute(
+    "href",
+    "/research/IMSA-2026-Sentiment-Modulation.pdf",
+  );
+  const paperResponse = await page.request.get(
+    "/research/IMSA-2026-Sentiment-Modulation.pdf",
+  );
+  expect(paperResponse.status()).toBe(200);
+  expect(paperResponse.headers()["content-type"]).toContain("application/pdf");
+  const pdfBytes = await paperResponse.body();
+  expect(pdfBytes.subarray(0, 5).toString()).toBe("%PDF-");
+  expect(createHash("sha256").update(pdfBytes).digest("hex")).toBe(
+    "d10c753ccab7441c26214a6dbc13c67c29da005b454654614c3489b2776e1444",
+  );
+  const downloadEvent = page.waitForEvent("download");
+  await paperLink.click();
+  const download = await downloadEvent;
+  expect(download.suggestedFilename()).toBe(
+    "IMSA-2026-Sentiment-Modulation.pdf",
+  );
+  expect(await download.failure()).toBeNull();
   await expect(research.locator("tbody tr").first()).toContainText("94.2%");
   await expect(research.locator("tbody tr").first()).toContainText("0.9420");
   await expect(research.locator("tbody tr").first()).toContainText("0.060");

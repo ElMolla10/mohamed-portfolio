@@ -60,3 +60,9 @@ Extracted and visually reviewed the actual selected one-page CV. Added the three
 Research now has a hero link, navigation entry, prominent full-width section before project case studies, first-author/IEEE publication status, exact benchmark table, and primary IEEE + implementation links. No DOI or citation count was invented when Xplore could not be fetched.
 
 Local Wrangler runtime: four Playwright tests passed, including CV/publication discoverability, 320–1920px overflow checks, exact CV download, complete experience/education, source detail disclosure, clipboard, navigation, metadata, reduced motion and desktop/mobile axe WCAG checks. Captured and inspected desktop research, archive, experience, education and 320px viewport screenshots. Tall element screenshots can contain sticky-header artifacts; normal mobile viewport capture was separately inspected and shows no overlap or exposed skip link.
+
+## Camera-ready PDF download
+
+Converted the supplied DOCX with Microsoft Word's native PDF export, opening the source read-only and leaving it unchanged. Confirmed the Finder alias resolves to the same DOCX. Inspected all four PDF pages after rendering at 110 dpi: two-column flow, table borders, equation text and the architecture figure remain legible with no clipping. This is a conversion of the supplied manuscript, not a new formatting/compliance pass or the publisher's downloaded PDF.
+
+Added a separate Download paper (PDF) button and author-manuscript label while preserving the IEEE link. Lint and build pass; all four browser tests pass, including PDF HTTP 200/application-pdf, `%PDF-` signature, exact SHA-256 and actual download filename/event. Checked desktop and 320px mobile screenshots of the link group. Cloudflare attachment headers verified in the local runtime.

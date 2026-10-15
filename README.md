@@ -66,3 +66,5 @@ The suite checks layouts from 320 to 1920px, name and portrait visibility, keybo
 ## Published research and complete CV
 
 `src/data/research.ts` owns publication metadata, IEEE/source links and exact benchmarks. `src/data/additionalProjects.ts` contains the thesis trading engine, MALIK/Arabic ASR and price-intelligence cases. `src/data/credentials.ts` contains education, coursework and Scale Computing credentials. Employment dates and responsibilities now come from the selected PDF, and the current RAGBase deployment remains Railway. See `docs/CONTENT-AUDIT.md` for a field-by-field CV coverage map and source discrepancies.
+
+The research section also provides `public/research/IMSA-2026-Sentiment-Modulation.pdf`, a four-page native Word export of the user-provided camera-ready manuscript. The download and IEEE Xplore links remain separate. Cloudflare serves the PDF with an attachment filename; the browser suite verifies its bytes and the actual download event.

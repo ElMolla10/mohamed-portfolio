@@ -8,3 +8,7 @@
 
 /social-image
   Content-Type: image/png
+
+/research/IMSA-2026-Sentiment-Modulation.pdf
+  Content-Type: application/pdf
+  Content-Disposition: attachment; filename="IMSA-2026-Sentiment-Modulation.pdf"
