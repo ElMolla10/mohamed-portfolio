@@ -59,7 +59,7 @@ test("responsive layout, working tabs, source details, downloads, and email copy
     createHash("sha256")
       .update(await cv.body())
       .digest("hex"),
-  ).toBe("294d62cb3f3e91f489837a359d9c2175b3174519313de40ebae07d65dbd8cbb8");
+  ).toBe("116b74af1a06f9b54a8b2d357fa3cf51791164c0bddb1306263b321ce483f247");
   expect(cv.headers()["content-type"]).toContain("application/pdf");
   await page.getByRole("button", { name: "Copy email address" }).click();
   await expect(page.getByRole("status")).toContainText("Email copied");

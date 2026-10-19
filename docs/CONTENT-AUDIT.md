@@ -2,7 +2,7 @@
 
 ## Authoritative CV
 
-The complete one-page `Downloads/Mohamed_ElMolla_AIEngineer_CV.pdf` was extracted with pdftotext and visually reviewed as a rendered page. It is served unchanged as `/Mohamed_ElMolla_AIEngineer_CV.pdf`; SHA-256 `294d62cb3f3e91f489837a359d9c2175b3174519313de40ebae07d65dbd8cbb8`.
+The complete one-page `Downloads/Mohamed_ElMolla_AIEngineer_CV.pdf` was extracted with pdftotext and visually reviewed as a rendered page. It is served unchanged as `/Mohamed_ElMolla_AIEngineer_CV.pdf`; SHA-256 `116b74af1a06f9b54a8b2d357fa3cf51791164c0bddb1306263b321ce483f247`.
 
 | CV content                                                                         | Website destination                                                                                                                                                                 |
 | ---------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
