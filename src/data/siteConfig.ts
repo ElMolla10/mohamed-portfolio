@@ -8,7 +8,7 @@ export const siteConfig = {
   location: "Dokki, Cairo, Egypt",
   phoneDisplay: "+20 111 506 6400",
   phoneHref: "+201115066400",
-  email: "imody10@gmail.com",
+  email: "mohamed.elmolla.ai@gmail.com",
   github: "https://github.com/ElMolla10",
   linkedin: "https://www.linkedin.com/in/mohamed-el-molla/",
   cv: "/Mohamed_ElMolla_AIEngineer_CV.pdf",

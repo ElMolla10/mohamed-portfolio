@@ -64,7 +64,7 @@ test("responsive layout, working tabs, source details, downloads, and email copy
   await page.getByRole("button", { name: "Copy email address" }).click();
   await expect(page.getByRole("status")).toContainText("Email copied");
   expect(await page.evaluate(() => navigator.clipboard.readText())).toBe(
-    "imody10@gmail.com",
+    "mohamed.elmolla.ai@gmail.com",
   );
   await page.setViewportSize({ width: 375, height: 900 });
   await page.getByRole("button", { name: "Open menu" }).click();
