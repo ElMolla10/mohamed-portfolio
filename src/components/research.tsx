@@ -1,4 +1,6 @@
+import Link from "next/link";
 import {
+  ArrowRight,
   ArrowUpRight,
   BookOpen,
   Download,
@@ -55,8 +57,14 @@ export function Research() {
               ))}
             </div>
             <div className="research-links">
-              <a
+              <Link
                 className="button primary"
+                href="/research/sentiment-modulation"
+              >
+                Paper Deep Dive &amp; Math <ArrowRight size={15} />
+              </Link>
+              <a
+                className="button secondary"
                 href={research.url}
                 target="_blank"
                 rel="noopener noreferrer"

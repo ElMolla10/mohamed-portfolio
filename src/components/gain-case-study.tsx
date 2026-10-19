@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import {
   ArrowRight,
@@ -88,6 +89,13 @@ export function GainCaseStudy() {
           </div>
           <Tags items={gain.stack} />
           <div className="gain-links">
+            <Link
+              href="/projects/gain"
+              className="button primary"
+              style={{ padding: "6px 12px", fontSize: "11px", gap: "8px" }}
+            >
+              Full Case Study <ArrowUpRight size={14} />
+            </Link>
             {gain.sources.map((source) => (
               <SourceLink href={source.url} key={source.url}>
                 {source.label}

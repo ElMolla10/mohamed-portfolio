@@ -1,7 +1,9 @@
+import Link from "next/link";
 import {
   Braces,
   GitBranch,
   ArrowRight,
+  ArrowUpRight,
   FileText,
   Network,
   Search,
@@ -103,7 +105,24 @@ export function ProjectCaseStudy({ project }: { project: Project }) {
         </div>
         <div className="project-title">
           <h3>{project.name}</h3>
-          <SourceLink href={project.sources[0].url}>View source</SourceLink>
+          <div style={{ display: "flex", gap: "14px", alignItems: "center" }}>
+            {isRag && (
+              <Link
+                href="/projects/ragbase"
+                style={{
+                  fontSize: "12px",
+                  fontFamily: "var(--mono)",
+                  color: "var(--accent)",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "4px",
+                }}
+              >
+                Deep Dive <ArrowUpRight size={13} />
+              </Link>
+            )}
+            <SourceLink href={project.sources[0].url}>View source</SourceLink>
+          </div>
         </div>
         <p className="project-headline">{project.headline}</p>
         <span className="maturity supporting">{project.maturity}</span>
