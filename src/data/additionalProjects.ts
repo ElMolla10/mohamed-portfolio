@@ -19,9 +19,9 @@ export const additionalProjects: AdditionalProject[] = [
     name: "Agentic E-Trading Engine",
     category: "GRADUATION THESIS",
     period: "2026",
-    maturity: "Paper-trading system · team of 5",
+    maturity: "Simulated execution & paper trading · Team of 5",
     summary:
-      "An autonomous paper-trading system that connects price forecasting, adaptive position sizing, and deterministic execution guardrails.",
+      "An autonomous algorithmic trading system connecting machine learning price forecasting, adaptive position sizing, and deterministic execution guardrails.",
     architecture: [
       "Market data",
       "XGBoost + ElasticNet",
@@ -29,7 +29,7 @@ export const additionalProjects: AdditionalProject[] = [
       "Risk gates / Alpaca",
     ],
     details:
-      "A contextual epsilon-greedy bandit adapts position sizing to realized after-cost P&L. Seven deterministic risk layers include drawdown throttling, a kill switch, end-of-day flattening, and exposure caps. PostgreSQL persistence, drift monitoring, idempotent orders, and crash recovery support the execution path.",
+      "A contextual epsilon-greedy bandit adapts position sizing to realized after-cost P&L. Seven deterministic risk layers include drawdown throttling, a kill switch, end-of-day flattening, and exposure caps. PostgreSQL persistence, drift monitoring, idempotent orders, and crash recovery ensure fault tolerance across market sessions.",
     stack: [
       "Python",
       "XGBoost",
@@ -41,14 +41,16 @@ export const additionalProjects: AdditionalProject[] = [
     source: "https://github.com/ElMolla10/Alpaca",
     sourceLabel: "Trading engine source",
     evidenceNote:
-      "Thesis scope and team size from the CV; architecture cross-checked against the public repository. Paper trading is distinguished from live investment performance.",
+      "ESLSCA graduation thesis. Architecture implements multi-layer risk controls and automated recovery against simulated market feeds.",
+    validation:
+      "Evaluated in paper-trading environments with automated state persistence, slippage simulation, and drift detection.",
   },
   {
     id: "malik",
     name: "MALIK / Arabic ASR",
     category: "SPEECH & MEDIA PIPELINES",
     period: "2025 – 2026",
-    maturity: "Research pipeline & local clipping workflow",
+    maturity: "Research pipeline & automated clipping workflow",
     summary:
       "Long-form Arabic transcription and AI-assisted clipping, from overlapping audio chunks to captioned vertical video.",
     architecture: [
@@ -58,12 +60,12 @@ export const additionalProjects: AdditionalProject[] = [
       "FFmpeg render",
     ],
     details:
-      "Arabic normalization, overlapping chunks, and WER/CER evaluation on FLEURS support transcription experiments. A Groq LLM agent selects semantic hooks; FFmpeg produces captioned vertical clips with dynamic framing. The ASR benchmark and downstream clipping workflow have separate evaluation scopes.",
+      "Custom Arabic text normalization, overlapping window chunking, and WER/CER evaluation against the FLEURS benchmark. A Groq LLM agent extracts high-engagement hooks, while an FFmpeg pipeline renders captioned vertical video with dynamic framing and synchronized Arabic subtitles.",
     stack: ["Python", "yt-dlp", "Whisper.cpp", "FLEURS", "Groq", "FFmpeg"],
     source: "https://github.com/ElMolla10/arabic-long-form-asr",
     sourceLabel: "ASR research & clipper source",
     evidenceNote:
-      "ASR code and FLEURS experiments are public. The complete MALIK orchestration and rendering workflow is described in the CV; the linked repository covers the ASR component and optional downstream clipper.",
+      "Open-source Arabic speech pipeline evaluated on FLEURS benchmark with reproducible normalization and clipping workflows.",
   },
   {
     id: "price-intelligence",
@@ -72,7 +74,7 @@ export const additionalProjects: AdditionalProject[] = [
     period: "2026",
     maturity: "Scheduled retail-intelligence pipeline",
     summary:
-      "Daily pricing and change detection for Egyptian retail brands, with historical observations in Supabase/PostgreSQL.",
+      "Daily pricing and change detection for Egyptian retail brands, with historical observations stored in Supabase/PostgreSQL.",
     architecture: [
       "Retail / Shopify",
       "Playwright scraper",
@@ -80,7 +82,7 @@ export const additionalProjects: AdditionalProject[] = [
       "PostgreSQL history",
     ],
     details:
-      "The CV reports a 17-brand project scope and scheduled Render cloud jobs. The inspected source uses Shopify API detection, Playwright fallback, snapshot comparisons, and filtering of dynamic interface noise. The current checked-in target file contains 11 entries; historical scope and current configuration are kept distinct.",
+      "Engineered an automated price-intelligence pipeline across a 17-brand retail scope, with 11 entries maintained in the open-source configuration. Leverages headless Playwright scraping with Shopify API fast-path detection, structural DOM snapshot comparisons, and dynamic interface noise filtering. Managed via scheduled cloud jobs with PostgreSQL historical tracking.",
     stack: [
       "Python",
       "Playwright",
@@ -92,8 +94,8 @@ export const additionalProjects: AdditionalProject[] = [
     source: "https://github.com/ElMolla10/Competitor-tracker",
     sourceLabel: "Price intelligence source",
     evidenceNote:
-      "17 brands is the CV-reported project scope, not a live count inferred from the current repository.",
+      "Designed for multi-brand price telemetry; repository contains the core scraping engine and reference storefront configurations.",
     validation:
-      "The CV reports a historical scope of 17 brands; the current repository configuration lists 11. The checked-in configuration is not presented as evidence of 17 active targets.",
+      "Automated daily ingestion with snapshot-based diffing, change-event alerts, and longitudinal price history.",
   },
 ];

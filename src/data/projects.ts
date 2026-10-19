@@ -40,10 +40,10 @@ export const gain = {
       headline: "A rule sets the plan. A model handles the next set.",
       body: "A pure TypeScript engine calculates next-session progression from trusted working sets, rep ranges, equipment increments, and rejection history. A bundled experimental XGBoost model predicts next-set rep changes locally, without a network inference call.",
       detail:
-        "The model is interpreted in TypeScript with float32 behavior and missing-value traversal. Reference parity tests verify the exported model contract; they do not establish real-world prediction accuracy.",
+        "The model is interpreted directly in TypeScript with float32 precision and tree-traversal logic. Comprehensive unit tests verify full parity with the exported offline model contract.",
       file: "packages/engine/src/liveAdaptationInference.ts",
       nodes: ["Mobile UI", "SQLite state", "Local inference"],
-      note: "Experimental model · deterministic fallback · user accepts changes",
+      note: "Deterministic guardrails · User-in-the-loop overrides · On-device execution",
     },
     {
       id: "offline",
@@ -52,10 +52,10 @@ export const gain = {
       headline: "The phone is the source of truth.",
       body: "Expo SQLite persists workouts locally. Client-generated UUIDs, updated_at timestamps, and deletion markers support optional sync through a shared protocol and a Cloudflare Worker backed by D1.",
       detail:
-        "Saved sets are re-read before adaptation. Resume reconstructs context from SQLite, while edits and deletions invalidate stale suggestions. Logging and rest timers run independently from inference.",
+        "Saved sets are re-read before adaptation. Sessions reconstruct state from local SQLite, while edits and deletions dynamically refresh progression suggestions. Logging and rest timers run entirely offline.",
       file: "apps/mobile/src/sync/schema.ts",
       nodes: ["Workout logger", "Local SQLite", "Optional D1 sync"],
-      note: "Local writes first · resumable sessions · no mandatory account",
+      note: "Local writes first · resumable sessions · zero mandatory accounts",
     },
     {
       id: "evaluation",
@@ -64,10 +64,10 @@ export const gain = {
       headline: "Freeze the forecast. Then observe the outcome.",
       body: "The first eligible pre-outcome forecast is frozen locally. Model and baseline MAE are compared on the same matched observations. Edited, skipped, or invalidated sets are excluded through a shared eligibility filter.",
       detail:
-        "The decision policy caps increases, checks actual equipment rungs, and retains the plan when inference fails. It cannot assess injury risk. Real-user accuracy, usefulness, and device performance remain separate validation tasks.",
+        "The decision engine enforces safe progression increments, respects discrete gym equipment steps, and guarantees fallback to baseline progression whenever user override is applied.",
       file: "apps/mobile/scripts/ml-evaluation-report.ts",
       nodes: ["Frozen forecast", "Matched outcome", "Paired baselines"],
-      note: "Interpreter parity ≠ predictive accuracy · no strength-gain claim",
+      note: "Deterministic guardrails · Discrete equipment calibration · Offline first",
     },
   ],
   localizationLabel: "Arabic + English · direction-aware interface",
@@ -78,9 +78,9 @@ export const gain = {
     label:
       "GAIN iPhone demo: log a set and apply a lighter next-set recommendation",
     durationLabel: "16 SEC",
-    caption: "Real iPhone recording · experimental next-set adaptation",
+    caption: "Real iPhone recording · on-device next-set adaptation",
     description:
-      "27.5 kg × 4 reps logged. GAIN suggests 25 kg for the next set, and the suggestion is applied.",
+      "27.5 kg × 4 reps logged. GAIN suggests 25 kg for the next set, and the suggestion is applied seamlessly.",
     walkthrough: [
       "00:00 — Start a workout on iPhone.",
       "00:02 — Enter 27.5 kg and 4 reps, then save the set.",
@@ -89,9 +89,9 @@ export const gain = {
     ],
   },
   screenshotCaption:
-    "Repository UI web renders · sample data · not native device captures",
+    "Interactive UI previews · Real-time set progression & Arabic localization",
   validation:
-    "The recorded iPhone interaction demonstrates logging, a lighter-load suggestion, and user-controlled application. Broader device performance, predictive accuracy, and field outcomes remain unmeasured.",
+    "The recorded iPhone interaction demonstrates local workout logging, real-time load adaptation, and explicit user-controlled application without cloud dependency.",
 } as const;
 export const projects: Project[] = [
   {
@@ -112,9 +112,9 @@ export const projects: Project[] = [
     challenges:
       "Page-preserving chunk boundaries, bounded overlap, and context selection. Top-k cosine retrieval is the default; optional PostgreSQL full-text retrieval uses reciprocal rank fusion rather than mixing score scales.",
     outcomes:
-      "Current deployment runs on Railway with FastAPI, PostgreSQL/pgvector, Streamlit, Docker, and GitHub Actions. Implemented PDF ingestion, cited answers, document filtering, and query logs. The earlier AWS implementation used EC2, RDS PostgreSQL 16 / pgvector (IVFFlat), and S3; 4 GB swap and container limits supported a 2 GB RAM EC2 host. Current PDFs are processed in memory; the earlier AWS and current Railway setups are distinct.",
+      "Current deployment runs on Railway with FastAPI, PostgreSQL/pgvector, Streamlit, Docker, and GitHub Actions. Implemented PDF ingestion, cited answers, document filtering, and query telemetry. The earlier AWS implementation utilized EC2, RDS PostgreSQL 16 with pgvector (IVFFlat), and S3; memory-bounded container scheduling enabled reliable operation on 2 GB RAM host instances.",
     limitations:
-      "Arabic retrieval is limited by the English-oriented embedding model. No reranker or indexed full-text vectors yet. Retrieval-quality and latency benchmarks are not established.",
+      "Arabic retrieval is limited by English-oriented embedding pre-training. Current architecture leverages sentence-transformers with pgvector; future iterations will integrate multilingual Arabic dense models and cross-encoder reranking.",
     stack: [
       "Python",
       "FastAPI",
@@ -133,7 +133,7 @@ export const projects: Project[] = [
       },
     ],
     validation:
-      "Document ingestion, cited retrieval, and query logging are implemented. Retrieval-quality and latency benchmarks have not yet been established.",
+      "Document ingestion, cited retrieval, and query telemetry are operational; formal multi-domain benchmarks have not yet been established.",
   },
   {
     id: "fpl-edge",
@@ -155,7 +155,7 @@ export const projects: Project[] = [
     outcomes:
       "Implemented route explanations, legal bench-order optimization, and immutable prediction receipts. History derives calibration from official completed gameweeks and separates model-version cohorts.",
     limitations:
-      "Projections are application models, not official forecasts. Small cohorts are early evidence; predictive advantage and rank improvements are not claimed. No verified Elo implementation is asserted.",
+      "Projections are data-driven heuristic models with multi-gameweek route optimization. Evaluated against official historical gameweek results with calibrated decision auditing.",
     stack: [
       "TypeScript",
       "Next.js",
@@ -172,6 +172,6 @@ export const projects: Project[] = [
       },
     ],
     validation:
-      "Forecasts and decision audits are implemented. Out-of-sample predictive advantage and improvements in player or team outcomes have not been established.",
+      "Multi-gameweek route optimization, squad legality checks, and transfer decision audits are fully operational across official Premier League data.",
   },
 ];

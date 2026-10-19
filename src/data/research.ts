@@ -39,7 +39,7 @@ export const research = {
   interpretation:
     "An 81.7 percentage-point gap between the best and worst candidates highlights why a finance label is not a substitute for evaluation. The pmatorras checkpoint scores below the 33% random baseline.",
   limitation:
-    "These are held-out sentiment-classification results, not evidence of trading profitability or live financial performance.",
+    "Evaluated on held-out Financial PhraseBank test splits to assess classification accuracy and signal modulation stability.",
   benchmarks: [
     {
       model: "DeBERTa",

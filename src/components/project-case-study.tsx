@@ -118,11 +118,11 @@ export function ProjectCaseStudy({ project }: { project: Project }) {
           </div>
           <details>
             <summary>
-              Verified implementation & limitations <span>+</span>
+              Implementation details &amp; architectural roadmap <span>+</span>
             </summary>
-            <h4>VERIFIED OUTCOMES</h4>
+            <h4>IMPLEMENTATION &amp; DEPLOYMENT</h4>
             <p>{project.outcomes}</p>
-            <h4>LIMITATIONS & EVALUATION</h4>
+            <h4>TRADE-OFFS &amp; ROADMAP</h4>
             <p>{project.limitations}</p>
             {project.validation && (
               <ValidationNote>{project.validation}</ValidationNote>

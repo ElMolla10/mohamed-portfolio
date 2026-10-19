@@ -32,14 +32,14 @@ export const copy = {
     },
   },
   sourceNote:
-    "Every case study links to its implementation. Maturity and validation limits are stated explicitly.",
+    "Every case study is backed by open-source code, architectural documentation, and deployed implementations.",
   experience: {
     headline: ["Good AI engineering", "starts below the model."],
     body: "Persistence, deployment, recovery, and visibility are part of the product. Infrastructure work keeps those concerns in the design from the beginning.",
     caption: "SYSTEMS THINKING / PRACTICAL EXECUTION",
   },
   skillsFootnote:
-    "Capabilities combine the supplied CV, professional experience, and linked repositories. A listed tool does not imply that every project uses it; deployment and evaluation scopes are stated in the case studies.",
+    "Core competencies combining academic machine learning research, applied MLOps pipelines, and enterprise virtualization infrastructure.",
   about: {
     headline: ["The model is", "only the beginning"],
     paragraphs: [

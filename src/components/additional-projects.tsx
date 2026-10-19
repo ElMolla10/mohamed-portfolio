@@ -45,7 +45,7 @@ export function AdditionalProjects() {
                 </ol>
                 <details>
                   <summary>
-                    Engineering details & evidence <span>+</span>
+                    System architecture &amp; implementation <span>+</span>
                   </summary>
                   <p>{project.details}</p>
                   <p className="evidence-note">{project.evidenceNote}</p>

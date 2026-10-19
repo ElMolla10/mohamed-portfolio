@@ -279,21 +279,6 @@ export default function Home() {
           Back to top <ArrowRight className="up-arrow" size={14} />
         </a>
       </footer>
-      <aside
-        className="verification-footer section-shell"
-        aria-label="Publication checks"
-      >
-        <details>
-          <summary>
-            Publication checks <ArrowUpRight size={13} />
-          </summary>
-          <p>
-            Professional experience, education, certifications, and skills are
-            sourced from the supplied CV. Repository details and evaluation
-            limits are distinguished in each case study.
-          </p>
-        </details>
-      </aside>
     </>
   );
 }
