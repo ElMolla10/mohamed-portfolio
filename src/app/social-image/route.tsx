@@ -10,14 +10,14 @@ export function GET() {
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
-        background: "#090a0f",
+        background: "#090b14",
         padding: "68px",
         color: "#f3f4f6",
         fontFamily: "sans-serif",
-        borderBottom: "8px solid #10b981",
+        borderBottom: "8px solid #818cf8",
       }}
     >
-      <div style={{ display: "flex", fontSize: 24, color: "#10b981" }}>
+      <div style={{ display: "flex", fontSize: 24, color: "#818cf8" }}>
         mohamed.ehab_
       </div>
       <div
@@ -31,7 +31,7 @@ export function GET() {
       >
         <span>Intelligent systems.</span>
         <span>Engineered for</span>
-        <span style={{ color: "#10b981" }}>the real world.</span>
+        <span style={{ color: "#818cf8" }}>the real world.</span>
       </div>
       <div
         style={{

@@ -4,13 +4,13 @@
   --font-mono: var(--font-jetbrains);
 }
 :root {
-  --bg: #090a0f;
-  --surface: #11131a;
-  --surface-high: #171a22;
+  --bg: #090b14;
+  --surface: #101424;
+  --surface-high: #161c32;
   --border: rgba(255, 255, 255, 0.08);
   --text: #f3f4f6;
-  --muted: #959ba9;
-  --accent: #10b981;
+  --muted: #989eb2;
+  --accent: #818cf8;
   --mono: var(--font-mono), monospace;
 }
 * {
@@ -52,7 +52,7 @@ summary:focus-visible,
   border-radius: 3px;
 }
 ::selection {
-  background: #10b98140;
+  background: #818cf840;
   color: #fff;
 }
 h1,
@@ -99,14 +99,14 @@ div[id] {
   flex: none;
   background: var(--accent);
   border-radius: 50%;
-  box-shadow: 0 0 8px #10b98130;
+  box-shadow: 0 0 10px #818cf850;
 }
 .header {
   position: sticky;
   top: 0;
   z-index: 50;
   border-bottom: 1px solid var(--border);
-  background: #090a0fe8;
+  background: #090b14e8;
   backdrop-filter: blur(18px);
 }
 .header-inner {
@@ -178,7 +178,7 @@ div[id] {
   position: relative;
   background-image: radial-gradient(
     ellipse 70% 45% at 50% 0%,
-    rgba(16, 185, 129, 0.08) 0%,
+    rgba(129, 140, 248, 0.12) 0%,
     transparent 70%
   );
 }
@@ -297,7 +297,7 @@ h1 {
   left: 20%;
   right: 20%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, #10b98166, transparent);
+  background: linear-gradient(90deg, transparent, #818cf866, transparent);
 }
 .panel-top {
   padding: 16px 20px;
@@ -353,8 +353,8 @@ h1 {
     border-color 0.2s;
 }
 .system-row.selected {
-  border-color: #10b98135;
-  background: #10b98108;
+  border-color: #818cf835;
+  background: #818cf808;
 }
 .system-row:hover {
   background: #ffffff04;
@@ -382,8 +382,8 @@ h1 {
 }
 .selected .system-icon {
   color: var(--accent);
-  background: #10b98110;
-  border-color: #10b98130;
+  background: #818cf810;
+  border-color: #818cf830;
 }
 .row-index {
   margin-left: auto;
@@ -495,9 +495,9 @@ h1 {
   display: inline-flex;
   gap: 6px;
   align-items: center;
-  border: 1px solid #10b98128;
-  background: #10b98108;
-  color: #75b89e;
+  border: 1px solid #818cf828;
+  background: #818cf808;
+  color: #a5b4fc;
   font-size: 8px;
   letter-spacing: 0;
   padding: 3px 7px;
@@ -525,9 +525,9 @@ h1 {
 .gain-icon {
   height: 38px;
   width: 38px;
-  background: #10b98112;
+  background: #818cf812;
   color: var(--accent);
-  border: 1px solid #10b98128;
+  border: 1px solid #818cf828;
   border-radius: 9px;
   display: grid;
   place-items: center;
@@ -1270,7 +1270,7 @@ h1 {
 .timeline-point.current {
   background: var(--accent);
   border-color: var(--accent);
-  box-shadow: 0 0 0 4px #10b98112;
+  box-shadow: 0 0 0 4px #818cf820;
 }
 .timeline-meta {
   display: flex;
@@ -2351,8 +2351,8 @@ h1 {
   border-radius: 50%;
   overflow: hidden;
   flex: none;
-  border: 3px solid #31433d;
-  box-shadow: 0 0 0 6px #10b98106;
+  border: 3px solid #2e3552;
+  box-shadow: 0 0 0 6px #818cf815;
 }
 .portrait-frame img {
   width: 100%;
@@ -2477,10 +2477,10 @@ h1 {
   max-width: 100%;
   margin-top: 22px;
   padding: 9px 11px;
-  border: 1px solid #10b98138;
+  border: 1px solid #818cf838;
   border-radius: 5px;
-  background: #10b98109;
-  color: #b9d7c9;
+  background: #818cf809;
+  color: #c7d2fe;
   font-size: 10px;
   line-height: 1.6;
 }
@@ -2491,10 +2491,10 @@ h1 {
   flex: none;
 }
 .publication-mark {
-  color: #51d7ac;
+  color: #818cf8;
   font: 600 11px var(--mono);
   padding-right: 9px;
-  border-right: 1px solid #2d5345;
+  border-right: 1px solid #3730a3;
   letter-spacing: -0.4px;
 }
 .research-section {
@@ -2681,17 +2681,17 @@ h1 {
   white-space: nowrap;
 }
 .benchmark-table tbody tr {
-  border-bottom: 1px solid #23352c;
+  border-bottom: 1px solid #1e2438;
 }
 .benchmark-best {
-  color: #91edc5;
-  background: #10b9810a;
+  color: #c7d2fe;
+  background: #818cf814;
 }
 .benchmark-best strong {
   font-weight: 650;
 }
 .research-interpretation {
-  color: #99afa2;
+  color: #a5b4fc;
   font-size: 11px;
   line-height: 1.9;
   margin-top: 22px;
@@ -3492,16 +3492,16 @@ h1 {
   justify-content: center;
   white-space: nowrap;
   padding: 11px 14px;
-  background: #10b981;
-  color: #052318;
-  border: 1px solid #36d6a1;
+  background: #6366f1;
+  color: #ffffff;
+  border: 1px solid #818cf8;
   border-radius: 6px;
   font-size: 11px;
   font-weight: 600;
   box-shadow: 0 4px 16px #0009;
 }
 .gain-play-button:hover {
-  background: #34d399;
+  background: #4f46e5;
 }
 .video-error {
   position: relative;

@@ -52,7 +52,7 @@ export const metadata: Metadata = {
   robots: { index: !!url, follow: !!url },
 };
 export const viewport: Viewport = {
-  themeColor: "#090a0f",
+  themeColor: "#090b14",
   colorScheme: "dark",
 };
 export default function RootLayout({
