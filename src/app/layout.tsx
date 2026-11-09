@@ -24,6 +24,7 @@ export const metadata: Metadata = {
     "Cairo",
     "MLOps",
     "IEEE IMSA 2026",
+    "Scopus",
     "Published research",
     "RAG",
     "React Native",

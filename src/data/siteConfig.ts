@@ -4,7 +4,7 @@ export const siteConfig = {
   title:
     "Machine Learning & MLOps Engineer | Applied AI, NLP & Cloud Infrastructure",
   description:
-    "Mohamed Ehab is a machine learning and MLOps engineer, first-author IEEE IMSA 2026 researcher, and cloud infrastructure specialist in Cairo. Explore published research, on-device AI, RAG, and source-backed engineering projects.",
+    "Mohamed Ehab is a machine learning and MLOps engineer, first-author of a Scopus-indexed IEEE IMSA 2026 paper, and cloud infrastructure specialist in Cairo. Explore published research, on-device AI, RAG, and source-backed engineering projects.",
   location: "Dokki, Cairo, Egypt",
   phoneDisplay: "+20 111 506 6400",
   phoneHref: "+201115066400",

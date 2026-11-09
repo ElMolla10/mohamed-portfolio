@@ -43,7 +43,7 @@ export const copy = {
   about: {
     headline: ["The model is", "only the beginning"],
     paragraphs: [
-      "I’m Mohamed Ehab El Molla, an Artificial Intelligence BSc graduate from ESLSCA University and first-author IEEE IMSA 2026 researcher. I build ML pipelines, retrieval systems, NLP applications, and on-device AI, with infrastructure experience that keeps the deployment path in view.",
+      "I’m Mohamed Ehab El Molla, an Artificial Intelligence BSc graduate from ESLSCA University and first-author of a Scopus-indexed IEEE IMSA 2026 paper. I build ML pipelines, retrieval systems, NLP applications, and on-device AI, with infrastructure experience that keeps the deployment path in view.",
       "In GAIN, that means keeping workout state on the phone and making every recommendation overridable. In RAGBase, it means keeping the source attached to the answer. In FPL Edge, it means checking constraints before presenting a decision.",
       "At Prosoft, I work on cloud and virtualization architectures, building on DevOps experience at BARQ Systems and ML pipeline development at CLS Learning Solutions. The same question follows the work: what happens when a connection fails, a process restarts, or an assumption stops holding?",
     ],

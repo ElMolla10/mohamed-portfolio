@@ -9,10 +9,23 @@ export const research = {
   id: "research",
   title:
     "Automatic Model Selection and Sign-Aware Multiplicative Sentiment Modulation for Algorithmic Trading",
+  authors: [
+    "Mohamed Ehab El Molla",
+    "Mohamed Atef",
+    "Yahia Abdelmoeneam",
+    "Raghda Essam Ali",
+  ],
   venue: "IEEE IMSA 2026",
+  booktitle:
+    "Proceedings of the IEEE International Conference on Intelligent Multi-System Applications (IMSA)",
   period: "July 2026",
   role: "First author",
   status: "Published in IEEE Xplore",
+  indexLabel: "Indexed in Scopus",
+  indexDate: "Nov 2026",
+  doi: "10.1109/IMSA70415.2026.11700381",
+  doiUrl: "https://doi.org/10.1109/IMSA70415.2026.11700381",
+  documentId: "11700381",
   url: "https://ieeexplore.ieee.org/document/11700381",
   pdfUrl: "/research/IMSA-2026-Sentiment-Modulation.pdf",
   pdfFilename: "IMSA-2026-Sentiment-Modulation.pdf",
@@ -52,3 +65,20 @@ export const research = {
     { model: "pmatorras", accuracy: "12.5%", f1: "0.028", mae: "1.157" },
   ] as BenchmarkRow[],
 } as const;
+
+export function formatAuthors(
+  authors: readonly string[] = research.authors,
+): string {
+  if (authors.length < 2) return authors.join("");
+  return `${authors.slice(0, -1).join(", ")}, and ${authors[authors.length - 1]}`;
+}
+
+export const researchBibtex = `@inproceedings{elmolla2026sentiment,
+  author    = {${research.authors.join(" and ")}},
+  title     = {${research.title}},
+  booktitle = {${research.booktitle}},
+  year      = {2026},
+  publisher = {IEEE},
+  doi       = {${research.doi}},
+  url       = {${research.url}}
+}`;
