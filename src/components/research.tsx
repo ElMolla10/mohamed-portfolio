@@ -10,6 +10,36 @@ import {
 import { research } from "@/data/research";
 import { SourceLink } from "./ui";
 import { Reveal } from "./interactive";
+
+export function ResearchStatus() {
+  return (
+    <div className="research-publication">
+      <span>
+        <FileCheck2 size={15} />
+        {research.status}
+      </span>
+      <span className="scopus-badge">
+        {research.indexLabel}
+        <span>{research.indexDate}</span>
+      </span>
+      <span>
+        {research.role} · {research.venue}
+      </span>
+    </div>
+  );
+}
+
+export function ResearchIdentifiers() {
+  return (
+    <p className="research-period mono">
+      <a href={research.doiUrl} target="_blank" rel="noopener noreferrer">
+        DOI {research.doi}
+      </a>
+      {" / "}
+      {research.venue} / {research.period} / IEEE document {research.documentId}
+    </p>
+  );
+}
 export function Research() {
   return (
     <section
@@ -34,15 +64,7 @@ export function Research() {
       <Reveal>
         <article className="research-feature">
           <div className="research-prose">
-            <div className="research-publication">
-              <span>
-                <FileCheck2 size={15} />
-                {research.status}
-              </span>
-              <span>
-                {research.role} · {research.venue}
-              </span>
-            </div>
+            <ResearchStatus />
             <h3>{research.title}</h3>
             <p className="research-description">{research.description}</p>
             <div className="research-contributions">
@@ -85,9 +107,7 @@ export function Research() {
               </SourceLink>
             </div>
             <p className="research-download-note">{research.pdfDescription}</p>
-            <p className="research-period mono">
-              {research.venue} / {research.period} / IEEE document 11700381
-            </p>
+            <ResearchIdentifiers />
           </div>
           <div className="research-evidence">
             <div className="evidence-heading mono">

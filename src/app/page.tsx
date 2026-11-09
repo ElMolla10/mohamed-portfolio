@@ -73,7 +73,9 @@ export default function Home() {
               </p>
               <a className="hero-publication" href="#research">
                 <span className="publication-mark">IEEE</span>
-                <span>First-author research · published in IEEE Xplore</span>
+                <span>
+                  First-author research · IEEE Xplore · indexed in Scopus
+                </span>
                 <ArrowUpRight size={15} />
               </a>
               <div className="hero-actions">

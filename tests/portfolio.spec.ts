@@ -139,15 +139,33 @@ test("published research and complete CV sections are discoverable", async ({
   page,
 }) => {
   await page.goto("/");
+  await expect(page.locator('meta[name="description"]')).toHaveAttribute(
+    "content",
+    /Scopus-indexed IEEE IMSA 2026/,
+  );
+  await expect(
+    page.getByRole("link", { name: /indexed in Scopus/ }),
+  ).toBeVisible();
+  await expect(page.locator("#about")).toContainText(
+    "Scopus-indexed IEEE IMSA 2026 paper",
+  );
   await page.getByRole("link", { name: /First-author research/ }).click();
   await expect(page).toHaveURL(/#research$/);
   const research = page.locator("#research");
   await expect(research.getByRole("heading", { level: 3 })).toHaveText(
     "Automatic Model Selection and Sign-Aware Multiplicative Sentiment Modulation for Algorithmic Trading",
   );
+  await expect(research.getByText("Indexed in Scopus")).toBeVisible();
+  await expect(research.getByText("Nov 2026")).toBeVisible();
   await expect(
     research.getByRole("link", { name: "Read the published paper" }),
   ).toHaveAttribute("href", "https://ieeexplore.ieee.org/document/11700381");
+  await expect(
+    research.getByRole("link", {
+      name: "DOI 10.1109/IMSA70415.2026.11700381",
+    }),
+  ).toHaveAttribute("href", "https://doi.org/10.1109/IMSA70415.2026.11700381");
+  expect(await research.innerText()).not.toContain("10.1109/IMSA.2026");
   const paperLink = research.getByRole("link", {
     name: "Download paper (PDF)",
   });
@@ -222,6 +240,33 @@ test("published research and complete CV sections are discoverable", async ({
   await expect(
     page.getByRole("link", { name: "+20 111 506 6400" }),
   ).toHaveAttribute("href", "tel:+201115066400");
+  await page.goto("/research/sentiment-modulation");
+  await expect(page.getByRole("heading", { level: 1 })).toContainText(
+    "Automatic Model Selection and Sign-Aware Multiplicative Sentiment Modulation for Algorithmic Trading",
+  );
+  await expect(page.getByText("Indexed in Scopus")).toBeVisible();
+  await expect(page.getByText("Nov 2026")).toBeVisible();
+  await expect(page.locator(".paper-authors")).toHaveText(
+    "Mohamed Ehab El Molla, Mohamed Atef, Yahia Abdelmoeneam, and Raghda Essam Ali",
+  );
+  await expect(
+    page.getByRole("link", { name: "IEEE Xplore Entry" }),
+  ).toHaveAttribute("href", "https://ieeexplore.ieee.org/document/11700381");
+  const doiLinks = page.getByRole("link", {
+    name: "DOI 10.1109/IMSA70415.2026.11700381",
+  });
+  await expect(doiLinks).toHaveCount(2);
+  await expect(doiLinks.first()).toHaveAttribute(
+    "href",
+    "https://doi.org/10.1109/IMSA70415.2026.11700381",
+  );
+  await expect(page.locator(".bibtex-box")).toContainText(
+    "10.1109/IMSA70415.2026.11700381",
+  );
+  await expect(page.locator(".bibtex-box")).toContainText("Mohamed Atef");
+  await expect(page.locator(".bibtex-box")).toContainText("Yahia Abdelmoeneam");
+  await expect(page.locator(".bibtex-box")).toContainText("Raghda Essam Ali");
+  expect(await page.content()).not.toContain("10.1109/IMSA.2026.11700381");
 });
 
 test("real iPhone recording plays and seeks; validation notes and Arabic evidence remain clear", async ({
