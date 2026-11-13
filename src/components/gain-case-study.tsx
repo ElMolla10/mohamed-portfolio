@@ -96,6 +96,15 @@ export function GainCaseStudy() {
             >
               Full Case Study <ArrowUpRight size={14} />
             </Link>
+            <a
+              className="button secondary"
+              href={gain.appStore.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ padding: "6px 12px", fontSize: "11px", gap: "8px" }}
+            >
+              {gain.appStore.label} <ArrowUpRight size={14} />
+            </a>
             {gain.sources.map((source) => (
               <SourceLink href={source.url} key={source.url}>
                 {source.label}

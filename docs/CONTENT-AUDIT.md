@@ -31,7 +31,7 @@ Local `sentiment-trading/README.md`, `sentiment_trading/selector.py` and `modula
 
 ## Repository checks
 
-- **GAIN:** local source revision d17ecb6; README, progression engine, inference interpreter, live-adaptation and paired-evaluation docs inspected previously. The original source documented Android prereleases. A subsequently supplied iPhone recording now supports a Mobile prerelease label and a narrow device-workflow demonstration. Existing still images remain labeled web renders with sample data.
+- **GAIN:** local source revision d17ecb6; README, progression engine, inference interpreter, live-adaptation and paired-evaluation docs inspected previously. The original source documented earlier Android builds. The app is now live on the App Store as GAIN: Workout Tracker (v1.0.1). The iPhone recording remains a narrow device-workflow demonstration. Existing still images remain labeled web renders with sample data.
 - **RAGBase:** local source revision 2f8e695; config/retrieval/README inspected. The user explicitly confirmed the move to Railway in this revision. Current deployment stays Railway, with in-memory PDF processing. AWS EC2/RDS/S3 and 4 GB swap on 2 GB RAM describe the earlier CV implementation. English-oriented embeddings, missing reranker and unknown retrieval benchmarks remain explicit limitations.
 - **FPL Edge:** local source revision 7d6078c; source snapshot, optimizer, route solver and tests inspected previously. Existing case study retained. No Elo implementation or forecast advantage invented.
 - **Trading engine:** public ElMolla10/Alpaca README inspected. CV supplies thesis, team size, contextual bandit and operating details. Public repository documents the prediction/risk/execution architecture. No live profitability claimed.

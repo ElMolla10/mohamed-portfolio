@@ -5,7 +5,7 @@ Public case studies use reader-facing **Validation status** notes. Implementatio
 ## GAIN
 
 - [x] User-provided real iPhone screen recording, October 15, 2026, 15.603 seconds. Shows workout start, a saved 27.5 kg × 4 set, experimental AI proposing 25 kg, application to the next row, and continued logging.
-- [x] Public media identifies the device as iPhone and the model as experimental. Product maturity is Mobile prerelease; this does not imply an App Store release.
+- [x] Public media identifies the device as iPhone and the model as experimental. Product maturity is Live on the App Store as GAIN: Workout Tracker (v1.0.1): https://apps.apple.com/app/gain-workout-tracker/id6827498090.
 - [x] Video is not described as offline evidence: a 5G indicator is visible. Offline architecture is documented independently in the source case study.
 - [x] Web video keeps the original H.264 video stream, removes audio and metadata, and moves the MP4 index to the front for streaming. No frames are synthesized or sped up. The original user file is unchanged.
 - [x] Poster is extracted from the AI suggestion around 8 seconds. English walkthrough cues and an on-page transcript describe the visible interaction.
