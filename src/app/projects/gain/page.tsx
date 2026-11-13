@@ -6,9 +6,20 @@ import { gain } from "@/data/projects";
 import { Tags } from "@/components/ui";
 
 export const metadata: Metadata = {
-  title: "GAIN — On-Device Machine Learning & Offline Mobile Architecture | Mohamed Ehab",
+  title:
+    "GAIN: Workout Tracker — Live on the App Store | Mohamed Ehab",
   description:
-    "Engineering case study: On-device XGBoost inference in React Native, offline-first SQLite persistence, and Arabic/English strength progression.",
+    "GAIN: Workout Tracker (v1.0.1) by Mohamed El Molla is live on the App Store. Engineering case study: on-device XGBoost inference in React Native, offline-first SQLite persistence, and Arabic/English strength progression.",
+  openGraph: {
+    title: "GAIN: Workout Tracker — Live on the App Store",
+    description:
+      "GAIN: Workout Tracker (v1.0.1) by Mohamed El Molla is live on the App Store. On-device XGBoost inference, offline-first SQLite, and Arabic/English strength training.",
+  },
+  twitter: {
+    title: "GAIN: Workout Tracker — Live on the App Store",
+    description:
+      "GAIN: Workout Tracker (v1.0.1) by Mohamed El Molla is live on the App Store.",
+  },
 };
 
 export default function GainCaseStudyPage() {
@@ -22,17 +33,34 @@ export default function GainCaseStudyPage() {
       </nav>
 
       <header className="case-header">
+        <p className="case-release">
+          <span className="maturity">
+            <span className="status-dot" />
+            {gain.maturity}
+          </span>
+          <span>
+            {gain.storeName} · v{gain.version}
+          </span>
+        </p>
         <span className="eyebrow accent">MOBILE MACHINE LEARNING &amp; EDGE ARCHITECTURE</span>
         <h1>
           GAIN: Gym App with On-Device AI Intelligence. Even Offline<span className="accent">.</span>
         </h1>
         <p className="case-subtitle">
-          An Arabic and English strength-training application that computes deterministic progression and runs on-device XGBoost model inference directly inside the mobile runtime without cloud latency.
+          Live on the App Store as {gain.storeName} (v{gain.version}). An Arabic and English strength-training application that computes deterministic progression and runs on-device XGBoost model inference directly inside the mobile runtime without cloud latency.
         </p>
 
         <div className="case-actions">
           <a
             className="button primary"
+            href={gain.appStore.url}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {gain.appStore.label} <ArrowUpRight size={16} />
+          </a>
+          <a
+            className="button secondary"
             href="https://github.com/ElMolla10/gain"
             target="_blank"
             rel="noopener noreferrer"

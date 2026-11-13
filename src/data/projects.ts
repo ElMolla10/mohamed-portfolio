@@ -20,10 +20,16 @@ export interface Project {
 }
 export const gain = {
   name: "GAIN",
-  maturity: "Mobile prerelease",
+  storeName: "GAIN: Workout Tracker",
+  version: "1.0.1",
+  maturity: "Live on the App Store",
+  appStore: {
+    label: "View on the App Store",
+    url: "https://apps.apple.com/app/gain-workout-tracker/id6827498090",
+  },
   headline: "Gym App with AI Intelligence. Even Offline.",
   description:
-    "An Arabic + English strength-training app that turns logged sets into an explicit plan for what comes next. Local persistence, deterministic progression, and experimental on-device adaptation in one complete product.",
+    "An Arabic + English strength-training app, live on the App Store as GAIN: Workout Tracker. Local persistence, deterministic progression, and experimental on-device adaptation in one complete product.",
   stack: ["React Native", "Expo", "TypeScript", "SQLite", "XGBoost", "Vitest"],
   sources: [
     { label: "Explore repository", url: "https://github.com/ElMolla10/gain" },

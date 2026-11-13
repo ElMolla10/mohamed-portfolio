@@ -275,7 +275,17 @@ test("real iPhone recording plays and seeks; validation notes and Arabic evidenc
   await page.goto("/");
   expect(await page.content()).not.toContain("TODO_VERIFY");
   const gain = page.locator("#gain");
-  await expect(gain.locator(".maturity")).toHaveText("Mobile prerelease");
+  await expect(gain.locator(".maturity")).toHaveText("Live on the App Store");
+  await expect(page.locator("#about")).toContainText(
+    "live on the App Store as GAIN: Workout Tracker",
+  );
+  const appStore = gain.getByRole("link", { name: "View on the App Store" });
+  await expect(appStore).toBeVisible();
+  await expect(appStore).toHaveAttribute(
+    "href",
+    "https://apps.apple.com/app/gain-workout-tracker/id6827498090",
+  );
+  expect(await page.content()).not.toMatch(/prerelease|TestFlight|coming soon/i);
   await expect(gain.locator(".validation-note")).toContainText(
     "recorded iPhone interaction",
   );
@@ -333,4 +343,24 @@ test("real iPhone recording plays and seeks; validation notes and Arabic evidenc
   const captions = await page.request.get("/captions/gain-iphone-demo-en.vtt");
   expect(captions.status()).toBe(200);
   expect(await captions.text()).toContain("25 kg");
+});
+
+test("GAIN case study shows the live App Store listing", async ({ page }) => {
+  await page.goto("/projects/gain");
+  await expect(page).toHaveTitle(/Live on the App Store/);
+  await expect(page.locator('meta[name="description"]')).toHaveAttribute(
+    "content",
+    /GAIN: Workout Tracker \(v1\.0\.1\).*live on the App Store/,
+  );
+  await expect(page.locator(".maturity")).toHaveText("Live on the App Store");
+  await expect(page.locator(".case-release")).toContainText(
+    "GAIN: Workout Tracker · v1.0.1",
+  );
+  const appStore = page.getByRole("link", { name: "View on the App Store" });
+  await expect(appStore).toBeVisible();
+  await expect(appStore).toHaveAttribute(
+    "href",
+    "https://apps.apple.com/app/gain-workout-tracker/id6827498090",
+  );
+  expect(await page.content()).not.toMatch(/prerelease|TestFlight|coming soon/i);
 });

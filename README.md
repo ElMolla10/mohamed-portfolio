@@ -71,7 +71,7 @@ The research section also provides `public/research/IMSA-2026-Sentiment-Modulati
 
 ## Device recording and validation notes
 
-GAIN includes the supplied iPhone recording at `public/videos/gain-iphone-live-adaptation.mp4` (15.603s, 384×848 H.264). The web copy is a fast-start remux without audio or metadata; video frames are unchanged. Native controls, a poster, optional English walkthrough cues and a text walkthrough make the clip accessible without autoplay or eager video loading. The recording demonstrates the interaction, not offline connectivity, predictive accuracy or broad device performance.
+GAIN is live on the App Store as **GAIN: Workout Tracker** (v1.0.1): https://apps.apple.com/app/gain-workout-tracker/id6827498090. The case study includes the supplied iPhone recording at `public/videos/gain-iphone-live-adaptation.mp4` (15.603s, 384×848 H.264). The web copy is a fast-start remux without audio or metadata; video frames are unchanged. Native controls, a poster, optional English walkthrough cues and a text walkthrough make the clip accessible without autoplay or eager video loading. The recording demonstrates the interaction, not offline connectivity, predictive accuracy or broad device performance.
 
 Public copy uses **Validation status** notes. The internal `[TODO_VERIFY]` checklist lives in `docs/VALIDATION-CHECKLIST.md` and is excluded from the deployed content. `src/data/localization.ts` and its component highlight GAIN's Arabic/English localization and the Arabic ASR pipeline, with separate evidence boundaries for each.
 
