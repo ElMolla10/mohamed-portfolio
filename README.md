@@ -47,7 +47,7 @@ For Git integration in the Cloudflare dashboard: select **Next.js (Static HTML E
 - `src/data/experience.ts`: current user-supplied role, project work and pending employment details.
 - `src/data/skills.ts`: six capability domains and evidence links. `¹` means CV-sourced, not independently repository-audited.
 - `public/Mohamed_ElMolla_AIEngineer_CV.pdf`: exact user-selected October 15 replacement PDF.
-- `public/images/mohamed-ehab.webp`: portrait cropped from the user-supplied LinkedIn screenshot, without synthesizing or retouching the face. Browser and LinkedIn interface content are excluded. Circular framing happens in CSS.
+- `public/images/mohamed-ehab.webp`: portrait cropped from the user-supplied LinkedIn profile-photo screenshot (Nov 15, 2026), without synthesizing or retouching the face. Browser and LinkedIn interface content are excluded. Circular framing happens in CSS.
 
 Search `TODO_VERIFY` for missing employment details and project-validation results. Domain and CV-selection checks have been resolved. GAIN screenshots remain explicitly labeled repository web renders using sample data.
 
